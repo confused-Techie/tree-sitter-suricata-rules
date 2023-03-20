@@ -214,6 +214,14 @@ module.exports = grammar({
       $.fast_pattern,
       $.prefilter,
       // Flow Keywords
+      $.flowbits,
+      $.flow,
+      $.flowint,
+      $.stream_size,
+      // Bypass Keyword
+      $.bypass,
+      // HTTP Keywords
+      $.http_uri,
     ),
 
     msg: $ => seq('msg:', $.string),
@@ -332,6 +340,20 @@ module.exports = grammar({
 
     prefilter: $ => 'prefilter',
 
+    flowbits: $ => seq('flowbits:', choice(seq('set', ',', $.text), seq('isset', ',', $.text), seq('toggle', ',', $.text), seq('unset', ',', $.text), seq('isnotset', ',', $.text), 'noalert')),
+
+    flow: $ => seq('flow:', repeat1(seq(choice('to_client', 'to_server', 'from_client', 'from_server', 'established', 'not_established', 'stateless', 'only_stream', 'no_stream', 'only_frag', 'no_frag'), optional(',')))),
+
+    // TODO The syntax here is much more complex, but we will be lazy
+    flowint: $ => seq('flowint:', $.text),
+
+    // TODO The syntax here is mildly complex, but could interact weirdly with other portions of parsing, so lazy for now
+    stream_size: $ => seq('stream_size:', $.text),
+
+    bypass: $ => 'bypass',
+
+    http_uri: $ => 'http.uri',
+
     string: $ => seq(
       '"',
       repeat(
@@ -346,7 +368,7 @@ module.exports = grammar({
       )
     ),
 
-    digit: $ => seq(
+    digit: $ => seq( // Check if the other digits should match 6.12.5
       optional(choice('>', '<')),
       /\d+/
     ),
