@@ -581,10 +581,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "content"
-        },
-        {
-          "type": "SYMBOL",
           "name": "sid"
         },
         {
@@ -658,6 +654,150 @@
         {
           "type": "SYMBOL",
           "name": "tos"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "seq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ack"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "window"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tcp_mss"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tcp_hdr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "udp_hdr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "itype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "icode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "icmp_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "icmp_seq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "icmpv6_hdr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "icmpv6_mtu"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nocase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "depth"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "startswith"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endswith"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "offset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "distance"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "within"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "isdataat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bsize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dsize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "rpc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "replace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pcre"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dotprefix"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "strip_whitespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "compress_whitespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "to_md5"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "to_sha1"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "to_sha256"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pcrexform"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "url_decode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fast_pattern"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "prefilter"
         }
       ]
     },
@@ -667,19 +807,6 @@
         {
           "type": "STRING",
           "value": "msg:"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string"
-        }
-      ]
-    },
-    "content": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "content:"
         },
         {
           "type": "SYMBOL",
@@ -981,6 +1108,474 @@
         }
       ]
     },
+    "seq": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "seq:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "ack": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ack:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "window": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "window:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "digit"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "decimal"
+            }
+          ]
+        }
+      ]
+    },
+    "tcp_mss": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tcp.mss:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "tcp_hdr": {
+      "type": "STRING",
+      "value": "tcp.hdr"
+    },
+    "udp_hdr": {
+      "type": "STRING",
+      "value": "udp.hdr"
+    },
+    "itype": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "itype:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "icode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "icode:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "icmp_id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "icmp_id:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "icmp_seq": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "icmp_seq:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "icmpv6_hdr": {
+      "type": "STRING",
+      "value": "icmpv6.hdr"
+    },
+    "icmpv6_mtu": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "icmpv6.mtu:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "content:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "nocase": {
+      "type": "STRING",
+      "value": "nocase"
+    },
+    "depth": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "depth:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "startswith": {
+      "type": "STRING",
+      "value": "startswith"
+    },
+    "endswith": {
+      "type": "STRING",
+      "value": "endswith"
+    },
+    "offset": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "offset:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "distance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "distance:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "within": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "within:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "isdataat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "isdataat:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "STRING",
+                  "value": "relative"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "bsize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bsize:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "dsize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "dsize:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "rpc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rpc:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "digit"
+            },
+            {
+              "type": "STRING",
+              "value": "*"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "digit"
+            },
+            {
+              "type": "STRING",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+    "replace": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "replace:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "pcre": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pcre:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "dotprefix": {
+      "type": "STRING",
+      "value": "dotprefix"
+    },
+    "strip_whitespace": {
+      "type": "STRING",
+      "value": "strip_whitespace"
+    },
+    "compress_whitespace": {
+      "type": "STRING",
+      "value": "compress_whitespace"
+    },
+    "to_md5": {
+      "type": "STRING",
+      "value": "to_md5"
+    },
+    "to_sha1": {
+      "type": "STRING",
+      "value": "to_sha1"
+    },
+    "to_sha256": {
+      "type": "STRING",
+      "value": "to_sha256"
+    },
+    "pcrexform": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pcrexform:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "url_decode": {
+      "type": "STRING",
+      "value": "url_decode"
+    },
+    "fast_pattern": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fastpattern"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ":"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "only"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "digit"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "prefilter": {
+      "type": "STRING",
+      "value": "prefilter"
+    },
     "string": {
       "type": "SEQ",
       "members": [
@@ -1020,8 +1615,38 @@
       ]
     },
     "digit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ">"
+                },
+                {
+                  "type": "STRING",
+                  "value": "<"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        }
+      ]
+    },
+    "decimal": {
       "type": "PATTERN",
-      "value": "\\d+"
+      "value": "\\d+.\\d+"
     }
   },
   "extras": [

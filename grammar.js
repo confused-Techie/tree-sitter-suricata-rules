@@ -145,8 +145,8 @@ module.exports = grammar({
     ),
 
     _opts: $ => choice(
+      // Meta Keywords
       $.msg,
-      $.content,
       $.sid,
       $.rev,
       $.gid,
@@ -155,6 +155,7 @@ module.exports = grammar({
       $.priority,
       $.metadata,
       $.target,
+      // IP Keywords
       $.ttl,
       $.ipopts,
       $.sameip,
@@ -166,11 +167,56 @@ module.exports = grammar({
       $.fragbits,
       $.fragoffset,
       $.tos,
+      // TCP Keywords
+      $.seq,
+      $.ack,
+      $.window,
+      $.tcp_mss,
+      $.tcp_hdr,
+      // UDP Keywords
+      $.udp_hdr,
+      // ICMP Keywords
+      $.itype,
+      $.icode,
+      $.icmp_id,
+      $.icmp_seq,
+      $.icmpv6_hdr,
+      $.icmpv6_mtu,
+      // Payload Keywords
+      $.content,
+      $.nocase,
+      $.depth,
+      $.startswith,
+      $.endswith,
+      $.offset,
+      $.distance,
+      $.within,
+      $.isdataat,
+      $.bsize,
+      $.dsize,
+      // TODO byte_test 6.7.12
+      // TODO byte_math 6.7.3
+      // TODO byte_jump 6.7.14
+      // TODO byte_extract 6.7.15
+      $.rpc,
+      $.replace,
+      $.pcre,
+      // Transformations
+      $.dotprefix,
+      $.strip_whitespace,
+      $.compress_whitespace,
+      $.to_md5,
+      $.to_sha1,
+      $.to_sha256,
+      $.pcrexform,
+      $.url_decode,
+      // Prefiltering Keywords
+      $.fast_pattern,
+      $.prefilter,
+      // Flow Keywords
     ),
 
     msg: $ => seq('msg:', $.string),
-
-    content: $ => seq( 'content:', $.string),
 
     sid: $ => seq('sid:', $.digit),
 
@@ -210,6 +256,82 @@ module.exports = grammar({
 
     tos: $ => seq('tos:', optional($.negation), optional('x'), $.digit),
 
+    seq: $ => seq('seq:', $.digit),
+
+    ack: $ => seq('ack:', $.digit),
+
+    window: $ => seq('window:', optional($.negation), choice($.digit, $.decimal)),
+
+    tcp_mss: $ => seq('tcp.mss:', $.text),
+
+    tcp_hdr: $ => 'tcp.hdr',
+
+    udp_hdr: $ => 'udp.hdr',
+
+    // TODO:
+    // itype, icode, and icmpv6_mtu could be much more exact, as they support some operators
+    // and then a digit, but as the exact syntax is unclear I'll go with text for now until
+    // I can find some clarification on the exact syntax
+    itype: $ => seq('itype:', $.text),
+
+    icode: $ => seq('icode:', $.text),
+
+    icmp_id: $ => seq('icmp_id:', $.digit),
+
+    icmp_seq: $ => seq('icmp_seq:', $.digit),
+
+    icmpv6_hdr: $ => 'icmpv6.hdr',
+
+    icmpv6_mtu: $ => seq('icmpv6.mtu:', $.text),
+
+    content: $ => seq('content:', optional($.negation), $.string),
+
+    nocase: $ => 'nocase',
+
+    depth: $ => seq('depth:', $.digit),
+
+    startswith: $ => 'startswith',
+
+    endswith: $ => 'endswith',
+
+    offset: $ => seq('offset:', $.digit),
+
+    distance: $ => seq('distance:', $.digit),
+
+    within: $ => seq('within:', $.digit),
+
+    isdataat: $ => seq('isdataat:', optional($.negation), $.digit, optional(seq(',', 'relative'))),
+
+    bsize: $ => seq('bsize:', $.digit),
+
+    dsize: $ => seq('dsize:', $.digit),
+
+    rpc: $ => seq('rpc:', $.digit, ',', choice($.digit, '*'), ',', choice($.digit, '*')),
+
+    replace: $ => seq('replace:', $.string),
+
+    pcre: $ => seq('pcre:', $.string),
+
+    dotprefix: $ => 'dotprefix',
+
+    strip_whitespace: $ => 'strip_whitespace',
+
+    compress_whitespace: $ => 'compress_whitespace',
+
+    to_md5: $ => 'to_md5',
+
+    to_sha1: $ => 'to_sha1',
+
+    to_sha256: $ => 'to_sha256',
+
+    pcrexform: $ => seq('pcrexform:', $.string),
+
+    url_decode: $ => 'url_decode',
+
+    fast_pattern: $ => seq('fastpattern', optional(choice(seq(':', 'only'), $.digit))),
+
+    prefilter: $ => 'prefilter',
+
     string: $ => seq(
       '"',
       repeat(
@@ -224,7 +346,12 @@ module.exports = grammar({
       )
     ),
 
-    digit: $ => /\d+/,
+    digit: $ => seq(
+      optional(choice('>', '<')),
+      /\d+/
+    ),
+
+    decimal: $ => /\d+.\d+/,
 
   }
 
