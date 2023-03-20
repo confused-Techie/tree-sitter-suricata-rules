@@ -1,0 +1,1039 @@
+{
+  "name": "suricataRules",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_lines"
+      }
+    },
+    "_lines": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_rule"
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    },
+    "_rule": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "action"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "header"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "options"
+        }
+      ]
+    },
+    "action": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "alert"
+        },
+        {
+          "type": "STRING",
+          "value": "pass"
+        },
+        {
+          "type": "STRING",
+          "value": "drop"
+        },
+        {
+          "type": "STRING",
+          "value": "reject"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectsrc"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectdst"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectboth"
+        }
+      ]
+    },
+    "header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "protocol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_location"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_port_choices"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "direction"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_location"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_port_choices"
+        }
+      ]
+    },
+    "protocol": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tcp"
+        },
+        {
+          "type": "STRING",
+          "value": "udp"
+        },
+        {
+          "type": "STRING",
+          "value": "icmp"
+        },
+        {
+          "type": "STRING",
+          "value": "ip"
+        },
+        {
+          "type": "STRING",
+          "value": "http"
+        },
+        {
+          "type": "STRING",
+          "value": "ftp"
+        },
+        {
+          "type": "STRING",
+          "value": "tls"
+        },
+        {
+          "type": "STRING",
+          "value": "smb"
+        },
+        {
+          "type": "STRING",
+          "value": "dns"
+        },
+        {
+          "type": "STRING",
+          "value": "dcerpc"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh"
+        },
+        {
+          "type": "STRING",
+          "value": "smtp"
+        },
+        {
+          "type": "STRING",
+          "value": "imap"
+        },
+        {
+          "type": "STRING",
+          "value": "modbus"
+        },
+        {
+          "type": "STRING",
+          "value": "dnp3"
+        },
+        {
+          "type": "STRING",
+          "value": "enip"
+        },
+        {
+          "type": "STRING",
+          "value": "nfs"
+        },
+        {
+          "type": "STRING",
+          "value": "ikev2"
+        },
+        {
+          "type": "STRING",
+          "value": "krb5"
+        },
+        {
+          "type": "STRING",
+          "value": "ntp"
+        },
+        {
+          "type": "STRING",
+          "value": "dhcp"
+        },
+        {
+          "type": "STRING",
+          "value": "rfb"
+        },
+        {
+          "type": "STRING",
+          "value": "rdp"
+        },
+        {
+          "type": "STRING",
+          "value": "snmp"
+        },
+        {
+          "type": "STRING",
+          "value": "tftp"
+        },
+        {
+          "type": "STRING",
+          "value": "sip"
+        },
+        {
+          "type": "STRING",
+          "value": "http2"
+        }
+      ]
+    },
+    "_location": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_standalone_location"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "group_location"
+        }
+      ]
+    },
+    "_standalone_location": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "variable"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ipv4"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ipv6"
+            }
+          ]
+        }
+      ]
+    },
+    "group_location": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_location"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_location"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "negation": {
+      "type": "STRING",
+      "value": "!"
+    },
+    "variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z_]*"
+        }
+      ]
+    },
+    "ipv4": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\d+\\.\\d+\\.\\d+\\.\\d+"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\/\\d+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "ipv6": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_ipv6_octet"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\/\\d+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_ipv6_octet": {
+      "type": "PATTERN",
+      "value": "[0-9a-fA-F]{1,4}:{0,2}"
+    },
+    "_port_choices": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "any"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "port"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "group_port"
+        }
+      ]
+    },
+    "port": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d{1,4}"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "port_range"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "group_port": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_port_choices"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_port_choices"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "port_range": {
+      "type": "STRING",
+      "value": ":"
+    },
+    "direction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "<>"
+        }
+      ]
+    },
+    "options": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_opts"
+                },
+                {
+                  "type": "STRING",
+                  "value": ";"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_opts"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ";"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_opts": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "msg"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sid"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "rev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "gid"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "classtype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "reference"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "priority"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "metadata"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "target"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ttl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ipopts"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sameip"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ip_proto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ipv4_hdr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ipv6_hdr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "geoip"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fragbits"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fragoffset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tos"
+        }
+      ]
+    },
+    "msg": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "msg:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "content:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "sid": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sid:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "rev": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rev:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "gid": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "gid:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "classtype": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "classtype:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "reference": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "reference:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "priority": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "priority:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "metadata:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "target": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "target:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "ttl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ttl:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "ipopts": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ipopts:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rr"
+            },
+            {
+              "type": "STRING",
+              "value": "eol"
+            },
+            {
+              "type": "STRING",
+              "value": "nop"
+            },
+            {
+              "type": "STRING",
+              "value": "ts"
+            },
+            {
+              "type": "STRING",
+              "value": "sec"
+            },
+            {
+              "type": "STRING",
+              "value": "esec"
+            },
+            {
+              "type": "STRING",
+              "value": "lsrr"
+            },
+            {
+              "type": "STRING",
+              "value": "ssrr"
+            },
+            {
+              "type": "STRING",
+              "value": "satid"
+            },
+            {
+              "type": "STRING",
+              "value": "any"
+            }
+          ]
+        }
+      ]
+    },
+    "sameip": {
+      "type": "STRING",
+      "value": "sameip"
+    },
+    "ip_proto": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ip_proto:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "digit"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "ipv4_hdr": {
+      "type": "STRING",
+      "value": "ipv4.hdr"
+    },
+    "ipv6_hdr": {
+      "type": "STRING",
+      "value": "ipv6.hdr"
+    },
+    "geoip": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "geoip:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "id:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "fragbits": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fragbits:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "fragoffset": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fragoffset:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "tos": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tos:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "x"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^\"\\n]+"
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "text": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^\";\\n]+"
+            }
+          }
+        }
+      ]
+    },
+    "digit": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+

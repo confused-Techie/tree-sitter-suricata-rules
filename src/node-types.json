@@ -1,0 +1,877 @@
+[
+  {
+    "type": "action",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "classtype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "direction",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "fragbits",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fragoffset",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "geoip",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gid",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group_location",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "group_location",
+          "named": true
+        },
+        {
+          "type": "ipv4",
+          "named": true
+        },
+        {
+          "type": "ipv6",
+          "named": true
+        },
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group_port",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "group_port",
+          "named": true
+        },
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "port",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "direction",
+          "named": true
+        },
+        {
+          "type": "group_location",
+          "named": true
+        },
+        {
+          "type": "group_port",
+          "named": true
+        },
+        {
+          "type": "ipv4",
+          "named": true
+        },
+        {
+          "type": "ipv6",
+          "named": true
+        },
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "port",
+          "named": true
+        },
+        {
+          "type": "protocol",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ip_proto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ipopts",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ipv4",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ipv6",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "metadata",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "msg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "classtype",
+          "named": true
+        },
+        {
+          "type": "content",
+          "named": true
+        },
+        {
+          "type": "fragbits",
+          "named": true
+        },
+        {
+          "type": "fragoffset",
+          "named": true
+        },
+        {
+          "type": "geoip",
+          "named": true
+        },
+        {
+          "type": "gid",
+          "named": true
+        },
+        {
+          "type": "id",
+          "named": true
+        },
+        {
+          "type": "ip_proto",
+          "named": true
+        },
+        {
+          "type": "ipopts",
+          "named": true
+        },
+        {
+          "type": "ipv4_hdr",
+          "named": true
+        },
+        {
+          "type": "ipv6_hdr",
+          "named": true
+        },
+        {
+          "type": "metadata",
+          "named": true
+        },
+        {
+          "type": "msg",
+          "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "reference",
+          "named": true
+        },
+        {
+          "type": "rev",
+          "named": true
+        },
+        {
+          "type": "sameip",
+          "named": true
+        },
+        {
+          "type": "sid",
+          "named": true
+        },
+        {
+          "type": "target",
+          "named": true
+        },
+        {
+          "type": "tos",
+          "named": true
+        },
+        {
+          "type": "ttl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "port_range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "priority",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "protocol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "reference",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rev",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sid",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "action",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "header",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "target",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "text",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tos",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "negation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ttl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<>",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "alert",
+    "named": false
+  },
+  {
+    "type": "any",
+    "named": false
+  },
+  {
+    "type": "classtype:",
+    "named": false
+  },
+  {
+    "type": "content:",
+    "named": false
+  },
+  {
+    "type": "dcerpc",
+    "named": false
+  },
+  {
+    "type": "dhcp",
+    "named": false
+  },
+  {
+    "type": "digit",
+    "named": true
+  },
+  {
+    "type": "dnp3",
+    "named": false
+  },
+  {
+    "type": "dns",
+    "named": false
+  },
+  {
+    "type": "drop",
+    "named": false
+  },
+  {
+    "type": "enip",
+    "named": false
+  },
+  {
+    "type": "eol",
+    "named": false
+  },
+  {
+    "type": "esec",
+    "named": false
+  },
+  {
+    "type": "fragbits:",
+    "named": false
+  },
+  {
+    "type": "fragoffset:",
+    "named": false
+  },
+  {
+    "type": "ftp",
+    "named": false
+  },
+  {
+    "type": "geoip:",
+    "named": false
+  },
+  {
+    "type": "gid:",
+    "named": false
+  },
+  {
+    "type": "http",
+    "named": false
+  },
+  {
+    "type": "http2",
+    "named": false
+  },
+  {
+    "type": "icmp",
+    "named": false
+  },
+  {
+    "type": "id:",
+    "named": false
+  },
+  {
+    "type": "ikev2",
+    "named": false
+  },
+  {
+    "type": "imap",
+    "named": false
+  },
+  {
+    "type": "ip",
+    "named": false
+  },
+  {
+    "type": "ip_proto:",
+    "named": false
+  },
+  {
+    "type": "ipopts:",
+    "named": false
+  },
+  {
+    "type": "ipv4_hdr",
+    "named": true
+  },
+  {
+    "type": "ipv6_hdr",
+    "named": true
+  },
+  {
+    "type": "krb5",
+    "named": false
+  },
+  {
+    "type": "lsrr",
+    "named": false
+  },
+  {
+    "type": "metadata:",
+    "named": false
+  },
+  {
+    "type": "modbus",
+    "named": false
+  },
+  {
+    "type": "msg:",
+    "named": false
+  },
+  {
+    "type": "negation",
+    "named": true
+  },
+  {
+    "type": "nfs",
+    "named": false
+  },
+  {
+    "type": "nop",
+    "named": false
+  },
+  {
+    "type": "ntp",
+    "named": false
+  },
+  {
+    "type": "pass",
+    "named": false
+  },
+  {
+    "type": "port_range",
+    "named": true
+  },
+  {
+    "type": "priority:",
+    "named": false
+  },
+  {
+    "type": "rdp",
+    "named": false
+  },
+  {
+    "type": "reference:",
+    "named": false
+  },
+  {
+    "type": "reject",
+    "named": false
+  },
+  {
+    "type": "rejectboth",
+    "named": false
+  },
+  {
+    "type": "rejectdst",
+    "named": false
+  },
+  {
+    "type": "rejectsrc",
+    "named": false
+  },
+  {
+    "type": "rev:",
+    "named": false
+  },
+  {
+    "type": "rfb",
+    "named": false
+  },
+  {
+    "type": "rr",
+    "named": false
+  },
+  {
+    "type": "sameip",
+    "named": true
+  },
+  {
+    "type": "satid",
+    "named": false
+  },
+  {
+    "type": "sec",
+    "named": false
+  },
+  {
+    "type": "sid:",
+    "named": false
+  },
+  {
+    "type": "sip",
+    "named": false
+  },
+  {
+    "type": "smb",
+    "named": false
+  },
+  {
+    "type": "smtp",
+    "named": false
+  },
+  {
+    "type": "snmp",
+    "named": false
+  },
+  {
+    "type": "ssh",
+    "named": false
+  },
+  {
+    "type": "ssrr",
+    "named": false
+  },
+  {
+    "type": "target:",
+    "named": false
+  },
+  {
+    "type": "tcp",
+    "named": false
+  },
+  {
+    "type": "tftp",
+    "named": false
+  },
+  {
+    "type": "tls",
+    "named": false
+  },
+  {
+    "type": "tos:",
+    "named": false
+  },
+  {
+    "type": "ts",
+    "named": false
+  },
+  {
+    "type": "ttl:",
+    "named": false
+  },
+  {
+    "type": "udp",
+    "named": false
+  },
+  {
+    "type": "x",
+    "named": false
+  }
+]

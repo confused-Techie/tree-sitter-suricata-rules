@@ -1,0 +1,13 @@
+======
+Generate Action
+======
+
+alert tcp 10.0.0.0 [80:] -> $EXTERNAL_NET any (msg:"Hello World";content:"403 Forbidden";sid:2884484;ipv4.hdr;gid:1;)
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4_cidr)))
