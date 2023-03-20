@@ -222,6 +222,55 @@ module.exports = grammar({
       $.bypass,
       // HTTP Keywords
       $.http_uri,
+      // TODO: Most HTTP Keywords have been skiped
+      // File Keywords
+      $.filename,
+      $.fileext,
+      $.filemagic,
+      $.filestore,
+      $.filemd5,
+      $.filesha1,
+      $.filesha256,
+      $.filesize,
+      // DNS Keywords
+      $.dns_opcode,
+      $.dns_query,
+      // SSL/TLS Keywords
+      $.tls_cert_subject,
+      $.tls_cert_issuer,
+      $.tls_cert_serial,
+      $.tls_cert_fingerprint,
+      $.tls_sni,
+      $.tls_cert_notbefore,
+      $.tls_cert_notafter,
+      $.tls_cert_expired,
+      $.tls_cert_valid,
+      $.tls_certs,
+      $.tls_version,
+      $.ssl_version,
+      $.tls_subject,
+      $.tls_issuerdn,
+      $.tls_fingerprint,
+      $.tls_store,
+      $.ssl_state,
+      // SSH Keywords
+
+      // JA3 Keywords
+      // Modbus Keywords
+      // DNP3 Keywords
+      // ENIP/CIP Keywords
+      // FTP/FTP-DATA Keywords
+      // Kerberos Keywords
+      // SNMP Keywords
+      // Base64 Keywords
+      // SIP Keywords
+      // RFB Keywords
+      // MQTT Keywords
+      // HTTP2 Keywords
+      // Generic App Layer Keywords
+      // XBits Keywords
+      // Thresholding Keywords
+      // IP Repuation Keyword 
     ),
 
     msg: $ => seq('msg:', $.string),
@@ -354,7 +403,64 @@ module.exports = grammar({
 
     http_uri: $ => 'http.uri',
 
+    // TODO Skipped HTTP Keywords
+
+    filename: $ => seq('filename:', $.string),
+
+    fileext: $ => seq('fileext:', $.string),
+
+    filemagic: $ => seq('filemagic:', $.string),
+
+    filestore: $ => seq('filestore:', optional(choice('request/to_server', 'response/to_client', 'both')), optional(seq(',', choice('file', 'tx', 'ssn/flow')))),
+
+    filemd5: $ => seq('filemd5:', optional($.negation), $.text),
+
+    filesha1: $ => seq('filesha1:', optional($.negation), $.text),
+
+    filesha256: $ => seq('filesha256:', optional($.negation), $.text),
+
+    filesize: $ => seq('filesize:', $.text), // TODO 6.13.8 This could be more exact
+
+    dns_opcode: $ => seq('dns.opcode:', optional($.negation), $.digit),
+
+    dns_query: $ => 'dns.query',
+
+    tls_cert_subject: $ => choice('tls_cert_subject', 'tls.cert_subject'),
+
+    tls_cert_issuer: $ => choice('tls_cert_issuer', 'tls.cert_issuer'),
+
+    tls_cert_serial: $ => choice('tls_cert_serial', 'tls.cert_serial'),
+
+    tls_cert_fingerprint: $ => choice('tls_cert_fingerprint', 'tls.cert_fingerprint'),
+
+    tls_sni: $ => choice('tls_sni', 'tls.sni'),
+
+    tls_cert_notbefore: $ => 'tls_cert_notbefore',
+
+    tls_cert_notafter: $ => 'tls_cert_notafter',
+
+    tls_cert_expired: $ => 'tls_cert_expired',
+
+    tls_cert_valid: $ => 'tls_cert_valid',
+
+    tls_certs: $ => 'tls.certs',
+
+    tls_version: $ => seq('tls.version:', $.text), // TODO 6.15.11
+
+    ssl_version: $ => seq('ssl_version:', repeat1(seq(choice('sslv2', 'sslv3', 'tls1.0', 'tls1.1', 'tls1.2', 'tls1.3'), optional(',')))),
+
+    tls_subject: $ => seq('tls.subject:', $.string),
+
+    tls_issuerdn: $ => seq('tls.issuerdn:', $.string),
+
+    tls_fingerprint: $ => seq('tls.fingerprint', $.string),
+
+    tls_store: $ => 'tls.store',
+
+    ssl_state: $ => seq('ssl_state:', repeat(seq(choice('client_hello', 'server_hello', 'client_keyx', 'server_keyx', 'unkown'), optional('|')))),
+
     string: $ => seq(
+      optional($.negation),
       '"',
       repeat(
         token.immediate(/[^"\n]+/)

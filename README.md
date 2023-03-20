@@ -8,4 +8,4 @@ Based on Suricata Version 6.0.0
 
 * [tree-sitter Create a Parser](https://tree-sitter.github.io/tree-sitter/creating-parsers#the-first-few-rules)
 * [Suricata Docs](https://suricata.readthedocs.io/en/suricata-6.0.0)
-* [Suricata Last Section Written](https://suricata.readthedocs.io/en/suricata-6.0.0/rules/flow-keywords.html#flow-keywords)
+* [Suricata Last Section Written](https://suricata.readthedocs.io/en/suricata-6.0.0/rules/ssh-keywords.html)
