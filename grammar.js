@@ -131,13 +131,22 @@ module.exports = grammar({
       optional(seq(alias($.colon, $.separator), $.value))
     ),
 
+    /**
+      Digits:
+        Intended to capture everything from '1', '12345'
+        Also intends to capture anything espexed as a generic numerical value:
+        ex. '>1', '10<>20' - From urilen (6.12.6)
+        ex. Any generic comparison operator
+        ex. '1-9' for numeric ranges
+    */
     digit: $ => seq(
       optional(
         alias(choice(
           '>',
           '<',
           '<=',
-          '>='
+          '>=',
+          '<>'
         ), $.operator)
       ),
       /\d+/,
@@ -167,11 +176,10 @@ module.exports = grammar({
 
     // Complex Values TODO:
     // byte_text 6.7.12; byte_math 6.7.13; byte_jump 6.7.14; byte_extract 6.7.15
-    // Double Check HTTP Keywords
     // Operators from itype, icode, icmpv6_mtu
     // flowint syntax
     // stream_size syntax
-    // 6.13.8; 6.15.11; 6.18; 6.12.5;
+    // 6.13.8; 6.15.11; 6.18;
     // 6.20 comma seperated keywords not supported
     // 6.28.6 value comparison not supported
     // 6.30 check syntax constant existance
