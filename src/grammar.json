@@ -637,17 +637,30 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ">"
-                },
-                {
-                  "type": "STRING",
-                  "value": "<"
-                }
-              ]
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ">"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ">="
+                  }
+                ]
+              },
+              "named": true,
+              "value": "operator"
             },
             {
               "type": "BLANK"
@@ -657,6 +670,32 @@
         {
           "type": "PATTERN",
           "value": "\\d+"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": "-"
+                  },
+                  "named": true,
+                  "value": "min_max"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "\\d+"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -1189,6 +1228,214 @@
         {
           "type": "STRING",
           "value": "reserved_1"
+        },
+        {
+          "type": "STRING",
+          "value": "retr"
+        },
+        {
+          "type": "STRING",
+          "value": "stor"
+        },
+        {
+          "type": "STRING",
+          "value": "INVITE"
+        },
+        {
+          "type": "STRING",
+          "value": "BYTE"
+        },
+        {
+          "type": "STRING",
+          "value": "REGISTER"
+        },
+        {
+          "type": "STRING",
+          "value": "CANCEL"
+        },
+        {
+          "type": "STRING",
+          "value": "ACK"
+        },
+        {
+          "type": "STRING",
+          "value": "OPTIONS"
+        },
+        {
+          "type": "STRING",
+          "value": "CONNECT"
+        },
+        {
+          "type": "STRING",
+          "value": "CONNACK"
+        },
+        {
+          "type": "STRING",
+          "value": "PUBLISH"
+        },
+        {
+          "type": "STRING",
+          "value": "PUBACK"
+        },
+        {
+          "type": "STRING",
+          "value": "PUBREC"
+        },
+        {
+          "type": "STRING",
+          "value": "PUBREL"
+        },
+        {
+          "type": "STRING",
+          "value": "PUBCOMP"
+        },
+        {
+          "type": "STRING",
+          "value": "SUBSCRIBE"
+        },
+        {
+          "type": "STRING",
+          "value": "SUBACK"
+        },
+        {
+          "type": "STRING",
+          "value": "PINGREQ"
+        },
+        {
+          "type": "STRING",
+          "value": "PINGRESP"
+        },
+        {
+          "type": "STRING",
+          "value": "DISCONNECT"
+        },
+        {
+          "type": "STRING",
+          "value": "AUTH"
+        },
+        {
+          "type": "STRING",
+          "value": "UNASSIGNED"
+        },
+        {
+          "type": "STRING",
+          "value": "dup"
+        },
+        {
+          "type": "STRING",
+          "value": "retain"
+        },
+        {
+          "type": "STRING",
+          "value": "yes"
+        },
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "no"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        },
+        {
+          "type": "STRING",
+          "value": "username"
+        },
+        {
+          "type": "STRING",
+          "value": "password"
+        },
+        {
+          "type": "STRING",
+          "value": "will"
+        },
+        {
+          "type": "STRING",
+          "value": "will_retain"
+        },
+        {
+          "type": "STRING",
+          "value": "clean_session"
+        },
+        {
+          "type": "STRING",
+          "value": "type"
+        },
+        {
+          "type": "STRING",
+          "value": "threshold"
+        },
+        {
+          "type": "STRING",
+          "value": "limit"
+        },
+        {
+          "type": "STRING",
+          "value": "both"
+        },
+        {
+          "type": "STRING",
+          "value": "track"
+        },
+        {
+          "type": "STRING",
+          "value": "by_src"
+        },
+        {
+          "type": "STRING",
+          "value": "by_dst"
+        },
+        {
+          "type": "STRING",
+          "value": "by_rule"
+        },
+        {
+          "type": "STRING",
+          "value": "by_both"
+        },
+        {
+          "type": "STRING",
+          "value": "count"
+        },
+        {
+          "type": "STRING",
+          "value": "seconds"
+        },
+        {
+          "type": "STRING",
+          "value": "src"
+        },
+        {
+          "type": "STRING",
+          "value": "dst"
+        },
+        {
+          "type": "STRING",
+          "value": "both"
+        },
+        {
+          "type": "STRING",
+          "value": "load"
+        },
+        {
+          "type": "STRING",
+          "value": "state"
+        },
+        {
+          "type": "STRING",
+          "value": "save"
+        },
+        {
+          "type": "STRING",
+          "value": "memcap"
+        },
+        {
+          "type": "STRING",
+          "value": "hashsize"
         }
       ]
     }

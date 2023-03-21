@@ -22,7 +22,21 @@
   {
     "type": "digit",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "min_max",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "direction",
@@ -327,15 +341,87 @@
     "named": false
   },
   {
-    "type": "<",
-    "named": false
-  },
-  {
     "type": "<>",
     "named": false
   },
   {
-    "type": ">",
+    "type": "ACK",
+    "named": false
+  },
+  {
+    "type": "AUTH",
+    "named": false
+  },
+  {
+    "type": "BYTE",
+    "named": false
+  },
+  {
+    "type": "CANCEL",
+    "named": false
+  },
+  {
+    "type": "CONNACK",
+    "named": false
+  },
+  {
+    "type": "CONNECT",
+    "named": false
+  },
+  {
+    "type": "DISCONNECT",
+    "named": false
+  },
+  {
+    "type": "INVITE",
+    "named": false
+  },
+  {
+    "type": "OPTIONS",
+    "named": false
+  },
+  {
+    "type": "PINGREQ",
+    "named": false
+  },
+  {
+    "type": "PINGRESP",
+    "named": false
+  },
+  {
+    "type": "PUBACK",
+    "named": false
+  },
+  {
+    "type": "PUBCOMP",
+    "named": false
+  },
+  {
+    "type": "PUBLISH",
+    "named": false
+  },
+  {
+    "type": "PUBREC",
+    "named": false
+  },
+  {
+    "type": "PUBREL",
+    "named": false
+  },
+  {
+    "type": "REGISTER",
+    "named": false
+  },
+  {
+    "type": "SUBACK",
+    "named": false
+  },
+  {
+    "type": "SUBSCRIBE",
+    "named": false
+  },
+  {
+    "type": "UNASSIGNED",
     "named": false
   },
   {
@@ -395,6 +481,22 @@
     "named": false
   },
   {
+    "type": "by_both",
+    "named": false
+  },
+  {
+    "type": "by_dst",
+    "named": false
+  },
+  {
+    "type": "by_rule",
+    "named": false
+  },
+  {
+    "type": "by_src",
+    "named": false
+  },
+  {
     "type": "class_1_events",
     "named": false
   },
@@ -404,6 +506,10 @@
   },
   {
     "type": "class_3_events",
+    "named": false
+  },
+  {
+    "type": "clean_session",
     "named": false
   },
   {
@@ -428,6 +534,10 @@
   },
   {
     "type": "confirm",
+    "named": false
+  },
+  {
+    "type": "count",
     "named": false
   },
   {
@@ -483,6 +593,14 @@
     "named": false
   },
   {
+    "type": "dst",
+    "named": false
+  },
+  {
+    "type": "dup",
+    "named": false
+  },
+  {
     "type": "enable_unsolicited",
     "named": false
   },
@@ -504,6 +622,10 @@
   },
   {
     "type": "event_buffer_overflow",
+    "named": false
+  },
+  {
+    "type": "false",
     "named": false
   },
   {
@@ -540,6 +662,10 @@
   },
   {
     "type": "get_file_info",
+    "named": false
+  },
+  {
+    "type": "hashsize",
     "named": false
   },
   {
@@ -595,12 +721,28 @@
     "named": false
   },
   {
+    "type": "limit",
+    "named": false
+  },
+  {
+    "type": "load",
+    "named": false
+  },
+  {
     "type": "local_control",
     "named": false
   },
   {
     "type": "lsrr",
     "named": false
+  },
+  {
+    "type": "memcap",
+    "named": false
+  },
+  {
+    "type": "min_max",
+    "named": true
   },
   {
     "type": "modbus",
@@ -616,6 +758,10 @@
   },
   {
     "type": "nfs",
+    "named": false
+  },
+  {
+    "type": "no",
     "named": false
   },
   {
@@ -671,11 +817,19 @@
     "named": false
   },
   {
+    "type": "operator",
+    "named": true
+  },
+  {
     "type": "parameter_error",
     "named": false
   },
   {
     "type": "pass",
+    "named": false
+  },
+  {
+    "type": "password",
     "named": false
   },
   {
@@ -731,6 +885,14 @@
     "named": false
   },
   {
+    "type": "retain",
+    "named": false
+  },
+  {
+    "type": "retr",
+    "named": false
+  },
+  {
     "type": "rfb",
     "named": false
   },
@@ -743,11 +905,19 @@
     "named": false
   },
   {
+    "type": "save",
+    "named": false
+  },
+  {
     "type": "save_config",
     "named": false
   },
   {
     "type": "sec",
+    "named": false
+  },
+  {
+    "type": "seconds",
     "named": false
   },
   {
@@ -791,6 +961,10 @@
     "named": false
   },
   {
+    "type": "src",
+    "named": false
+  },
+  {
     "type": "ssh",
     "named": false
   },
@@ -815,6 +989,10 @@
     "named": false
   },
   {
+    "type": "state",
+    "named": false
+  },
+  {
     "type": "stateless",
     "named": false
   },
@@ -823,11 +1001,19 @@
     "named": false
   },
   {
+    "type": "stor",
+    "named": false
+  },
+  {
     "type": "tcp",
     "named": false
   },
   {
     "type": "tftp",
+    "named": false
+  },
+  {
+    "type": "threshold",
     "named": false
   },
   {
@@ -863,11 +1049,23 @@
     "named": false
   },
   {
+    "type": "track",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
     "type": "ts",
     "named": false
   },
   {
     "type": "tx",
+    "named": false
+  },
+  {
+    "type": "type",
     "named": false
   },
   {
@@ -887,7 +1085,19 @@
     "named": false
   },
   {
+    "type": "username",
+    "named": false
+  },
+  {
     "type": "warm_restart",
+    "named": false
+  },
+  {
+    "type": "will",
+    "named": false
+  },
+  {
+    "type": "will_retain",
     "named": false
   },
   {
@@ -896,6 +1106,10 @@
   },
   {
     "type": "x",
+    "named": false
+  },
+  {
+    "type": "yes",
     "named": false
   }
 ]

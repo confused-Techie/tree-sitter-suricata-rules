@@ -132,8 +132,19 @@ module.exports = grammar({
     ),
 
     digit: $ => seq(
-      optional(choice('>', '<')),
-      /\d+/
+      optional(
+        alias(choice(
+          '>',
+          '<',
+          '<=',
+          '>='
+        ), $.operator)
+      ),
+      /\d+/,
+      optional(seq(
+        alias('-', $.min_max),
+        /\d+/
+      ))
     ),
 
     text: $ => seq( // String with no quotes, terminated at ':' or ';' or '\n'
@@ -161,7 +172,9 @@ module.exports = grammar({
     // flowint syntax
     // stream_size syntax
     // 6.13.8; 6.15.11; 6.18; 6.12.5;
-    // 6.20 comma seperated keywords
+    // 6.20 comma seperated keywords not supported
+    // 6.28.6 value comparison not supported
+    // 6.30 check syntax constant existance
     value: $ => seq(
       optional($.negation),
       choice( // Here will be where all values are defined for every possible keyword
@@ -199,6 +212,19 @@ module.exports = grammar({
       'device_trouble', 'device_restart', 'no_func_code_support', 'object_unknown', 'parameter_error',
       'event_buffer_overflow', 'alread_executing', 'config_corrupt', 'reserved_2', 'reserved_1', // dnp3_ind constants
 
+      'retr', 'stor', // FTP/FTP_DATA constants
+      'INVITE', 'BYTE', 'REGISTER', 'CANCEL', 'ACK', 'OPTIONS', // SIP method constants
+      'CONNECT', 'CONNACK', 'PUBLISH', 'PUBACK', 'PUBREC', 'PUBREL', 'PUBCOMP', 'SUBSCRIBE',
+      'SUBACK', 'PINGREQ', 'PINGRESP', 'DISCONNECT', 'AUTH', 'UNASSIGNED', // mqtt.type constants
+
+      'dup', 'retain', // mqtt.flags constants
+
+      'yes', 'true', 'no', 'false', // mqtt.connack.session_present
+      'username', 'password', 'will', 'will_retain', 'clean_session', // mqtt.connect.flags constants
+      'type', 'threshold', 'limit', 'both', 'track', 'by_src', 'by_dst', 'by_rule', 'by_both', 'count', 'seconds', // threshold constants
+
+      'src', 'dst', 'both', // IP Repuation constants
+      'load', 'state', 'save', 'memcap', 'hashsize', // rule dataset constants
     ),
 
   }
