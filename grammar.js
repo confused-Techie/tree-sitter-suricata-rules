@@ -109,15 +109,17 @@ module.exports = grammar({
     _ipv6_octet: $ => /[0-9a-fA-F]{1,4}:{0,2}/,
 
     _port_choices: $ => choice(
-      'any',
       $.port,
       $.group_port
     ),
 
-    port: $ => seq(
-      optional($.negation),
-      /\d{1,4}/,
-      optional($.port_range)
+    port: $ => choice(
+      'any',
+      seq(
+        optional($.negation),
+        /\d{1,4}/,
+        optional($.port_range)
+      )
     ),
 
     group_port: $ => seq(
@@ -254,8 +256,16 @@ module.exports = grammar({
       $.tls_store,
       $.ssl_state,
       // SSH Keywords
-
+      $.ssh_proto,
+      $.ssh_software,
+      $.ssh_protoversion,
+      $.ssh_softwareversion,
+      $.ssh_hassh,
+      $.ssh_hassh_string,
+      $.ssh_hassh_server,
+      $.ssh_hassh_server_string,
       // JA3 Keywords
+      
       // Modbus Keywords
       // DNP3 Keywords
       // ENIP/CIP Keywords
@@ -270,7 +280,7 @@ module.exports = grammar({
       // Generic App Layer Keywords
       // XBits Keywords
       // Thresholding Keywords
-      // IP Repuation Keyword 
+      // IP Repuation Keyword
     ),
 
     msg: $ => seq('msg:', $.string),
@@ -341,7 +351,7 @@ module.exports = grammar({
 
     icmpv6_mtu: $ => seq('icmpv6.mtu:', $.text),
 
-    content: $ => seq('content:', optional($.negation), $.string),
+    content: $ => seq('content:', $.string),
 
     nocase: $ => 'nocase',
 
@@ -458,6 +468,28 @@ module.exports = grammar({
     tls_store: $ => 'tls.store',
 
     ssl_state: $ => seq('ssl_state:', repeat(seq(choice('client_hello', 'server_hello', 'client_keyx', 'server_keyx', 'unkown'), optional('|')))),
+
+    ssh_proto: $ => choice(
+      'ssh.proto',
+      'ssh_proto',
+    ),
+
+    ssh_software: $ => choice(
+      'ssh.software',
+      'ssh_software',
+    ),
+
+    ssh_protoversion: $ => seq('ssh.protoversion:', choice($.decimal, '2_compat')),
+
+    ssh_softwareversion: $ => seq('ssh.softwareversion:', $.string),
+
+    ssh_hassh: $ => 'ssh.hassh',
+
+    ssh_hassh_string: $ => 'ssh.hassh.string',
+
+    ssh_hassh_server: $ => 'ssh.hassh.server',
+
+    ssh_hassh_server_string: $ => 'ssh.hassh.server.string',
 
     string: $ => seq(
       optional($.negation),

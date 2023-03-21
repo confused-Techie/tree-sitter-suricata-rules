@@ -1,0 +1,119 @@
+======
+Action: alert
+======
+
+alert tcp 10.0.0.0 any -> $EXTERNAL_NET any ()
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (port)
+    (direction)
+    (variable)
+    (port))
+  (options))
+
+======
+Action: reject
+======
+
+reject tcp 10.0.0.0 any -> $EXTERNAL_NET any ()
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (port)
+    (direction)
+    (variable)
+    (port))
+  (options))
+
+======
+Header: Variables
+======
+
+alert tcp $HOME_NET any -> $EXTERNAL_NET any ()
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (variable)
+    (port)
+    (direction)
+    (variable)
+    (port))
+  (options))
+
+======
+Header: Group Source Ip Address
+======
+
+alert tcp [10.0.0.0, 10.0.0.1] any -> $EXTERNAL_NET any ()
+
+-------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (group_location
+      (ipv4)
+      (ipv4))
+    (port)
+    (direction)
+    (variable)
+    (port))
+  (options))
+
+======
+Header: Group Source Port
+======
+
+alert tcp 10.0.0.0 [8080, 9999] -> 10.0.0.0 any ()
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (group_port
+      (port)
+      (port))
+    (direction)
+    (ipv4)
+    (port))
+  (options))
+
+======
+Header: Group Destination Ip Address
+======
+
+alert tcp 10.0.0.0 any -> [10.0.0.0, 10.0.0.1] any ()
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (port)
+    (direction)
+    (group_location
+      (ipv4)
+      (ipv4))
+    (port))
+  (options))

@@ -401,10 +401,6 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "any"
-        },
-        {
           "type": "SYMBOL",
           "name": "port"
         },
@@ -415,33 +411,42 @@
       ]
     },
     "port": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "negation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "STRING",
+          "value": "any"
         },
         {
-          "type": "PATTERN",
-          "value": "\\d{1,4}"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "port_range"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "negation"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
-              "type": "BLANK"
+              "type": "PATTERN",
+              "value": "\\d{1,4}"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "port_range"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         }
@@ -798,6 +803,170 @@
         {
           "type": "SYMBOL",
           "name": "prefilter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "flowbits"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "flow"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "flowint"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "stream_size"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bypass"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "http_uri"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filename"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fileext"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filemagic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filestore"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filemd5"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filesha1"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filesha256"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filesize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dns_opcode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dns_query"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_subject"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_issuer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_serial"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_fingerprint"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_sni"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_notbefore"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_notafter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_expired"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_cert_valid"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_certs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssl_version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_subject"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_issuerdn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_fingerprint"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tls_store"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssl_state"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_proto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_software"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_protoversion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_softwareversion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_hassh"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_hassh_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_hassh_server"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ssh_hassh_server_string"
         }
       ]
     },
@@ -1266,18 +1435,6 @@
           "value": "content:"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "negation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "SYMBOL",
           "name": "string"
         }
@@ -1576,9 +1733,790 @@
       "type": "STRING",
       "value": "prefilter"
     },
+    "flowbits": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "flowbits:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "set"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "isset"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "toggle"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "unset"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "isnotset"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "noalert"
+            }
+          ]
+        }
+      ]
+    },
+    "flow": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "flow:"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "to_client"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "to_server"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "from_client"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "from_server"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "established"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "not_established"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "stateless"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "only_stream"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "no_stream"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "only_frag"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "no_frag"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "flowint": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "flowint:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "stream_size": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "stream_size:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "bypass": {
+      "type": "STRING",
+      "value": "bypass"
+    },
+    "http_uri": {
+      "type": "STRING",
+      "value": "http.uri"
+    },
+    "filename": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filename:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "fileext": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fileext:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "filemagic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filemagic:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "filestore": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filestore:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "request/to_server"
+                },
+                {
+                  "type": "STRING",
+                  "value": "response/to_client"
+                },
+                {
+                  "type": "STRING",
+                  "value": "both"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "file"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "tx"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ssn/flow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "filemd5": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filemd5:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "filesha1": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filesha1:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "filesha256": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filesha256:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "filesize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "filesize:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "dns_opcode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "dns.opcode:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "dns_query": {
+      "type": "STRING",
+      "value": "dns.query"
+    },
+    "tls_cert_subject": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls_cert_subject"
+        },
+        {
+          "type": "STRING",
+          "value": "tls.cert_subject"
+        }
+      ]
+    },
+    "tls_cert_issuer": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls_cert_issuer"
+        },
+        {
+          "type": "STRING",
+          "value": "tls.cert_issuer"
+        }
+      ]
+    },
+    "tls_cert_serial": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls_cert_serial"
+        },
+        {
+          "type": "STRING",
+          "value": "tls.cert_serial"
+        }
+      ]
+    },
+    "tls_cert_fingerprint": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls_cert_fingerprint"
+        },
+        {
+          "type": "STRING",
+          "value": "tls.cert_fingerprint"
+        }
+      ]
+    },
+    "tls_sni": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls_sni"
+        },
+        {
+          "type": "STRING",
+          "value": "tls.sni"
+        }
+      ]
+    },
+    "tls_cert_notbefore": {
+      "type": "STRING",
+      "value": "tls_cert_notbefore"
+    },
+    "tls_cert_notafter": {
+      "type": "STRING",
+      "value": "tls_cert_notafter"
+    },
+    "tls_cert_expired": {
+      "type": "STRING",
+      "value": "tls_cert_expired"
+    },
+    "tls_cert_valid": {
+      "type": "STRING",
+      "value": "tls_cert_valid"
+    },
+    "tls_certs": {
+      "type": "STRING",
+      "value": "tls.certs"
+    },
+    "tls_version": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls.version:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "ssl_version": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssl_version:"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "sslv2"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "sslv3"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "tls1.0"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "tls1.1"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "tls1.2"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "tls1.3"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tls_subject": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls.subject:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "tls_issuerdn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls.issuerdn:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "tls_fingerprint": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tls.fingerprint"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "tls_store": {
+      "type": "STRING",
+      "value": "tls.store"
+    },
+    "ssl_state": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssl_state:"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "client_hello"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "server_hello"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "client_keyx"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "server_keyx"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unkown"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "|"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ssh_proto": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssh.proto"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh_proto"
+        }
+      ]
+    },
+    "ssh_software": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssh.software"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh_software"
+        }
+      ]
+    },
+    "ssh_protoversion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssh.protoversion:"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "2_compat"
+            }
+          ]
+        }
+      ]
+    },
+    "ssh_softwareversion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ssh.softwareversion:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "ssh_hassh": {
+      "type": "STRING",
+      "value": "ssh.hassh"
+    },
+    "ssh_hassh_string": {
+      "type": "STRING",
+      "value": "ssh.hassh.string"
+    },
+    "ssh_hassh_server": {
+      "type": "STRING",
+      "value": "ssh.hassh.server"
+    },
+    "ssh_hassh_server_string": {
+      "type": "STRING",
+      "value": "ssh.hassh.server.string"
+    },
     "string": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "negation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "STRING",
           "value": "\""

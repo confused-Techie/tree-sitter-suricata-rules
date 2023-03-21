@@ -59,13 +59,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "negation",
-          "named": true
-        },
         {
           "type": "string",
           "named": true
@@ -114,6 +110,25 @@
     }
   },
   {
+    "type": "dns_opcode",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "negation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dsize",
     "named": true,
     "fields": {},
@@ -138,6 +153,163 @@
       "types": [
         {
           "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fileext",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filemagic",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filemd5",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filename",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filesha1",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filesha256",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "negation",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filesize",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filestore",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "flow",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "flowbits",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flowint",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
           "named": true
         }
       ]
@@ -509,6 +681,10 @@
           "named": true
         },
         {
+          "type": "bypass",
+          "named": true
+        },
+        {
           "type": "classtype",
           "named": true
         },
@@ -529,6 +705,14 @@
           "named": true
         },
         {
+          "type": "dns_opcode",
+          "named": true
+        },
+        {
+          "type": "dns_query",
+          "named": true
+        },
+        {
           "type": "dotprefix",
           "named": true
         },
@@ -545,6 +729,50 @@
           "named": true
         },
         {
+          "type": "fileext",
+          "named": true
+        },
+        {
+          "type": "filemagic",
+          "named": true
+        },
+        {
+          "type": "filemd5",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        },
+        {
+          "type": "filesha1",
+          "named": true
+        },
+        {
+          "type": "filesha256",
+          "named": true
+        },
+        {
+          "type": "filesize",
+          "named": true
+        },
+        {
+          "type": "filestore",
+          "named": true
+        },
+        {
+          "type": "flow",
+          "named": true
+        },
+        {
+          "type": "flowbits",
+          "named": true
+        },
+        {
+          "type": "flowint",
+          "named": true
+        },
+        {
           "type": "fragbits",
           "named": true
         },
@@ -558,6 +786,10 @@
         },
         {
           "type": "gid",
+          "named": true
+        },
+        {
+          "type": "http_uri",
           "named": true
         },
         {
@@ -669,7 +901,51 @@
           "named": true
         },
         {
+          "type": "ssh_hassh",
+          "named": true
+        },
+        {
+          "type": "ssh_hassh_server",
+          "named": true
+        },
+        {
+          "type": "ssh_hassh_server_string",
+          "named": true
+        },
+        {
+          "type": "ssh_hassh_string",
+          "named": true
+        },
+        {
+          "type": "ssh_proto",
+          "named": true
+        },
+        {
+          "type": "ssh_protoversion",
+          "named": true
+        },
+        {
+          "type": "ssh_software",
+          "named": true
+        },
+        {
+          "type": "ssh_softwareversion",
+          "named": true
+        },
+        {
+          "type": "ssl_state",
+          "named": true
+        },
+        {
+          "type": "ssl_version",
+          "named": true
+        },
+        {
           "type": "startswith",
+          "named": true
+        },
+        {
+          "type": "stream_size",
           "named": true
         },
         {
@@ -686,6 +962,66 @@
         },
         {
           "type": "tcp_mss",
+          "named": true
+        },
+        {
+          "type": "tls_cert_expired",
+          "named": true
+        },
+        {
+          "type": "tls_cert_fingerprint",
+          "named": true
+        },
+        {
+          "type": "tls_cert_issuer",
+          "named": true
+        },
+        {
+          "type": "tls_cert_notafter",
+          "named": true
+        },
+        {
+          "type": "tls_cert_notbefore",
+          "named": true
+        },
+        {
+          "type": "tls_cert_serial",
+          "named": true
+        },
+        {
+          "type": "tls_cert_subject",
+          "named": true
+        },
+        {
+          "type": "tls_cert_valid",
+          "named": true
+        },
+        {
+          "type": "tls_certs",
+          "named": true
+        },
+        {
+          "type": "tls_fingerprint",
+          "named": true
+        },
+        {
+          "type": "tls_issuerdn",
+          "named": true
+        },
+        {
+          "type": "tls_sni",
+          "named": true
+        },
+        {
+          "type": "tls_store",
+          "named": true
+        },
+        {
+          "type": "tls_subject",
+          "named": true
+        },
+        {
+          "type": "tls_version",
           "named": true
         },
         {
@@ -919,9 +1255,84 @@
     }
   },
   {
-    "type": "string",
+    "type": "ssh_proto",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "ssh_protoversion",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "decimal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ssh_software",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ssh_softwareversion",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ssl_state",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ssl_version",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "stream_size",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "negation",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "target",
@@ -957,6 +1368,91 @@
     "type": "text",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "tls_cert_fingerprint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tls_cert_issuer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tls_cert_serial",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tls_cert_subject",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tls_fingerprint",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tls_issuerdn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tls_sni",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tls_subject",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tls_version",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "tos",
@@ -1068,6 +1564,10 @@
     "named": false
   },
   {
+    "type": "2_compat",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -1108,11 +1608,27 @@
     "named": false
   },
   {
+    "type": "both",
+    "named": false
+  },
+  {
     "type": "bsize:",
     "named": false
   },
   {
+    "type": "bypass",
+    "named": true
+  },
+  {
     "type": "classtype:",
+    "named": false
+  },
+  {
+    "type": "client_hello",
+    "named": false
+  },
+  {
+    "type": "client_keyx",
     "named": false
   },
   {
@@ -1152,6 +1668,14 @@
     "named": false
   },
   {
+    "type": "dns.opcode:",
+    "named": false
+  },
+  {
+    "type": "dns_query",
+    "named": true
+  },
+  {
     "type": "dotprefix",
     "named": true
   },
@@ -1180,7 +1704,59 @@
     "named": false
   },
   {
+    "type": "established",
+    "named": false
+  },
+  {
     "type": "fastpattern",
+    "named": false
+  },
+  {
+    "type": "file",
+    "named": false
+  },
+  {
+    "type": "fileext:",
+    "named": false
+  },
+  {
+    "type": "filemagic:",
+    "named": false
+  },
+  {
+    "type": "filemd5:",
+    "named": false
+  },
+  {
+    "type": "filename:",
+    "named": false
+  },
+  {
+    "type": "filesha1:",
+    "named": false
+  },
+  {
+    "type": "filesha256:",
+    "named": false
+  },
+  {
+    "type": "filesize:",
+    "named": false
+  },
+  {
+    "type": "filestore:",
+    "named": false
+  },
+  {
+    "type": "flow:",
+    "named": false
+  },
+  {
+    "type": "flowbits:",
+    "named": false
+  },
+  {
+    "type": "flowint:",
     "named": false
   },
   {
@@ -1189,6 +1765,14 @@
   },
   {
     "type": "fragoffset:",
+    "named": false
+  },
+  {
+    "type": "from_client",
+    "named": false
+  },
+  {
+    "type": "from_server",
     "named": false
   },
   {
@@ -1210,6 +1794,10 @@
   {
     "type": "http2",
     "named": false
+  },
+  {
+    "type": "http_uri",
+    "named": true
   },
   {
     "type": "icmp",
@@ -1272,6 +1860,14 @@
     "named": false
   },
   {
+    "type": "isnotset",
+    "named": false
+  },
+  {
+    "type": "isset",
+    "named": false
+  },
+  {
     "type": "itype:",
     "named": false
   },
@@ -1304,11 +1900,27 @@
     "named": false
   },
   {
+    "type": "no_frag",
+    "named": false
+  },
+  {
+    "type": "no_stream",
+    "named": false
+  },
+  {
+    "type": "noalert",
+    "named": false
+  },
+  {
     "type": "nocase",
     "named": true
   },
   {
     "type": "nop",
+    "named": false
+  },
+  {
+    "type": "not_established",
     "named": false
   },
   {
@@ -1321,6 +1933,14 @@
   },
   {
     "type": "only",
+    "named": false
+  },
+  {
+    "type": "only_frag",
+    "named": false
+  },
+  {
+    "type": "only_stream",
     "named": false
   },
   {
@@ -1376,6 +1996,14 @@
     "named": false
   },
   {
+    "type": "request/to_server",
+    "named": false
+  },
+  {
+    "type": "response/to_client",
+    "named": false
+  },
+  {
     "type": "rev:",
     "named": false
   },
@@ -1408,6 +2036,18 @@
     "named": false
   },
   {
+    "type": "server_hello",
+    "named": false
+  },
+  {
+    "type": "server_keyx",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
     "type": "sid:",
     "named": false
   },
@@ -1432,12 +2072,80 @@
     "named": false
   },
   {
+    "type": "ssh.proto",
+    "named": false
+  },
+  {
+    "type": "ssh.protoversion:",
+    "named": false
+  },
+  {
+    "type": "ssh.software",
+    "named": false
+  },
+  {
+    "type": "ssh.softwareversion:",
+    "named": false
+  },
+  {
+    "type": "ssh_hassh",
+    "named": true
+  },
+  {
+    "type": "ssh_hassh_server",
+    "named": true
+  },
+  {
+    "type": "ssh_hassh_server_string",
+    "named": true
+  },
+  {
+    "type": "ssh_hassh_string",
+    "named": true
+  },
+  {
+    "type": "ssh_proto",
+    "named": false
+  },
+  {
+    "type": "ssh_software",
+    "named": false
+  },
+  {
+    "type": "ssl_state:",
+    "named": false
+  },
+  {
+    "type": "ssl_version:",
+    "named": false
+  },
+  {
+    "type": "sslv2",
+    "named": false
+  },
+  {
+    "type": "sslv3",
+    "named": false
+  },
+  {
+    "type": "ssn/flow",
+    "named": false
+  },
+  {
     "type": "ssrr",
     "named": false
   },
   {
     "type": "startswith",
     "named": true
+  },
+  {
+    "type": "stateless",
+    "named": false
+  },
+  {
+    "type": "stream_size:",
+    "named": false
   },
   {
     "type": "strip_whitespace",
@@ -1468,8 +2176,112 @@
     "named": false
   },
   {
+    "type": "tls.cert_fingerprint",
+    "named": false
+  },
+  {
+    "type": "tls.cert_issuer",
+    "named": false
+  },
+  {
+    "type": "tls.cert_serial",
+    "named": false
+  },
+  {
+    "type": "tls.cert_subject",
+    "named": false
+  },
+  {
+    "type": "tls.fingerprint",
+    "named": false
+  },
+  {
+    "type": "tls.issuerdn:",
+    "named": false
+  },
+  {
+    "type": "tls.sni",
+    "named": false
+  },
+  {
+    "type": "tls.subject:",
+    "named": false
+  },
+  {
+    "type": "tls.version:",
+    "named": false
+  },
+  {
+    "type": "tls1.0",
+    "named": false
+  },
+  {
+    "type": "tls1.1",
+    "named": false
+  },
+  {
+    "type": "tls1.2",
+    "named": false
+  },
+  {
+    "type": "tls1.3",
+    "named": false
+  },
+  {
+    "type": "tls_cert_expired",
+    "named": true
+  },
+  {
+    "type": "tls_cert_fingerprint",
+    "named": false
+  },
+  {
+    "type": "tls_cert_issuer",
+    "named": false
+  },
+  {
+    "type": "tls_cert_notafter",
+    "named": true
+  },
+  {
+    "type": "tls_cert_notbefore",
+    "named": true
+  },
+  {
+    "type": "tls_cert_serial",
+    "named": false
+  },
+  {
+    "type": "tls_cert_subject",
+    "named": false
+  },
+  {
+    "type": "tls_cert_valid",
+    "named": true
+  },
+  {
+    "type": "tls_certs",
+    "named": true
+  },
+  {
+    "type": "tls_sni",
+    "named": false
+  },
+  {
+    "type": "tls_store",
+    "named": true
+  },
+  {
+    "type": "to_client",
+    "named": false
+  },
+  {
     "type": "to_md5",
     "named": true
+  },
+  {
+    "type": "to_server",
+    "named": false
   },
   {
     "type": "to_sha1",
@@ -1478,6 +2290,10 @@
   {
     "type": "to_sha256",
     "named": true
+  },
+  {
+    "type": "toggle",
+    "named": false
   },
   {
     "type": "tos:",
@@ -1492,12 +2308,24 @@
     "named": false
   },
   {
+    "type": "tx",
+    "named": false
+  },
+  {
     "type": "udp",
     "named": false
   },
   {
     "type": "udp_hdr",
     "named": true
+  },
+  {
+    "type": "unkown",
+    "named": false
+  },
+  {
+    "type": "unset",
+    "named": false
   },
   {
     "type": "url_decode",
@@ -1513,6 +2341,10 @@
   },
   {
     "type": "x",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   }
 ]
