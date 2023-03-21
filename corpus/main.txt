@@ -117,3 +117,32 @@ alert tcp 10.0.0.0 any -> [10.0.0.0, 10.0.0.1] any ()
       (ipv4))
     (port))
   (options))
+
+======
+Generic Options
+======
+
+alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32;)
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (port)
+    (direction)
+    (ipv4)
+    (port))
+  (options
+    (keyword)
+    (separator)
+    (value
+      (string))
+    (keyword)
+    (keyword)
+    (separator)
+    (value
+      (negation)
+      (digit))))

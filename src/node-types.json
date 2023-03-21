@@ -1,88 +1,13 @@
 [
   {
-    "type": "ack",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "action",
     "named": true,
     "fields": {}
   },
   {
-    "type": "bsize",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "classtype",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "comment",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "content",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "depth",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "digit",
@@ -93,287 +18,6 @@
     "type": "direction",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "distance",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "dns_opcode",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        },
-        {
-          "type": "negation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "dsize",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fast_pattern",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fileext",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filemagic",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filemd5",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "negation",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filename",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filesha1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "negation",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filesha256",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "negation",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filesize",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "filestore",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "flow",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "flowbits",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "flowint",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fragbits",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fragoffset",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "geoip",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "gid",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "group_location",
@@ -477,101 +121,7 @@
     }
   },
   {
-    "type": "icmp_id",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "icmp_seq",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "icmpv6_mtu",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "icode",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "id",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ip_proto",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ipopts",
+    "type": "hexidecimal",
     "named": true,
     "fields": {}
   },
@@ -586,83 +136,9 @@
     "fields": {}
   },
   {
-    "type": "isdataat",
+    "type": "keyword",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        },
-        {
-          "type": "negation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "itype",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "metadata",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "msg",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "offset",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "options",
@@ -673,425 +149,24 @@
       "required": false,
       "types": [
         {
-          "type": "ack",
+          "type": "keyword",
           "named": true
         },
         {
-          "type": "bsize",
+          "type": "separator",
           "named": true
         },
         {
-          "type": "bypass",
-          "named": true
-        },
-        {
-          "type": "classtype",
-          "named": true
-        },
-        {
-          "type": "compress_whitespace",
-          "named": true
-        },
-        {
-          "type": "content",
-          "named": true
-        },
-        {
-          "type": "depth",
-          "named": true
-        },
-        {
-          "type": "distance",
-          "named": true
-        },
-        {
-          "type": "dns_opcode",
-          "named": true
-        },
-        {
-          "type": "dns_query",
-          "named": true
-        },
-        {
-          "type": "dotprefix",
-          "named": true
-        },
-        {
-          "type": "dsize",
-          "named": true
-        },
-        {
-          "type": "endswith",
-          "named": true
-        },
-        {
-          "type": "fast_pattern",
-          "named": true
-        },
-        {
-          "type": "fileext",
-          "named": true
-        },
-        {
-          "type": "filemagic",
-          "named": true
-        },
-        {
-          "type": "filemd5",
-          "named": true
-        },
-        {
-          "type": "filename",
-          "named": true
-        },
-        {
-          "type": "filesha1",
-          "named": true
-        },
-        {
-          "type": "filesha256",
-          "named": true
-        },
-        {
-          "type": "filesize",
-          "named": true
-        },
-        {
-          "type": "filestore",
-          "named": true
-        },
-        {
-          "type": "flow",
-          "named": true
-        },
-        {
-          "type": "flowbits",
-          "named": true
-        },
-        {
-          "type": "flowint",
-          "named": true
-        },
-        {
-          "type": "fragbits",
-          "named": true
-        },
-        {
-          "type": "fragoffset",
-          "named": true
-        },
-        {
-          "type": "geoip",
-          "named": true
-        },
-        {
-          "type": "gid",
-          "named": true
-        },
-        {
-          "type": "http_uri",
-          "named": true
-        },
-        {
-          "type": "icmp_id",
-          "named": true
-        },
-        {
-          "type": "icmp_seq",
-          "named": true
-        },
-        {
-          "type": "icmpv6_hdr",
-          "named": true
-        },
-        {
-          "type": "icmpv6_mtu",
-          "named": true
-        },
-        {
-          "type": "icode",
-          "named": true
-        },
-        {
-          "type": "id",
-          "named": true
-        },
-        {
-          "type": "ip_proto",
-          "named": true
-        },
-        {
-          "type": "ipopts",
-          "named": true
-        },
-        {
-          "type": "ipv4_hdr",
-          "named": true
-        },
-        {
-          "type": "ipv6_hdr",
-          "named": true
-        },
-        {
-          "type": "isdataat",
-          "named": true
-        },
-        {
-          "type": "itype",
-          "named": true
-        },
-        {
-          "type": "metadata",
-          "named": true
-        },
-        {
-          "type": "msg",
-          "named": true
-        },
-        {
-          "type": "nocase",
-          "named": true
-        },
-        {
-          "type": "offset",
-          "named": true
-        },
-        {
-          "type": "pcre",
-          "named": true
-        },
-        {
-          "type": "pcrexform",
-          "named": true
-        },
-        {
-          "type": "prefilter",
-          "named": true
-        },
-        {
-          "type": "priority",
-          "named": true
-        },
-        {
-          "type": "reference",
-          "named": true
-        },
-        {
-          "type": "replace",
-          "named": true
-        },
-        {
-          "type": "rev",
-          "named": true
-        },
-        {
-          "type": "rpc",
-          "named": true
-        },
-        {
-          "type": "sameip",
-          "named": true
-        },
-        {
-          "type": "seq",
-          "named": true
-        },
-        {
-          "type": "sid",
-          "named": true
-        },
-        {
-          "type": "ssh_hassh",
-          "named": true
-        },
-        {
-          "type": "ssh_hassh_server",
-          "named": true
-        },
-        {
-          "type": "ssh_hassh_server_string",
-          "named": true
-        },
-        {
-          "type": "ssh_hassh_string",
-          "named": true
-        },
-        {
-          "type": "ssh_proto",
-          "named": true
-        },
-        {
-          "type": "ssh_protoversion",
-          "named": true
-        },
-        {
-          "type": "ssh_software",
-          "named": true
-        },
-        {
-          "type": "ssh_softwareversion",
-          "named": true
-        },
-        {
-          "type": "ssl_state",
-          "named": true
-        },
-        {
-          "type": "ssl_version",
-          "named": true
-        },
-        {
-          "type": "startswith",
-          "named": true
-        },
-        {
-          "type": "stream_size",
-          "named": true
-        },
-        {
-          "type": "strip_whitespace",
-          "named": true
-        },
-        {
-          "type": "target",
-          "named": true
-        },
-        {
-          "type": "tcp_hdr",
-          "named": true
-        },
-        {
-          "type": "tcp_mss",
-          "named": true
-        },
-        {
-          "type": "tls_cert_expired",
-          "named": true
-        },
-        {
-          "type": "tls_cert_fingerprint",
-          "named": true
-        },
-        {
-          "type": "tls_cert_issuer",
-          "named": true
-        },
-        {
-          "type": "tls_cert_notafter",
-          "named": true
-        },
-        {
-          "type": "tls_cert_notbefore",
-          "named": true
-        },
-        {
-          "type": "tls_cert_serial",
-          "named": true
-        },
-        {
-          "type": "tls_cert_subject",
-          "named": true
-        },
-        {
-          "type": "tls_cert_valid",
-          "named": true
-        },
-        {
-          "type": "tls_certs",
-          "named": true
-        },
-        {
-          "type": "tls_fingerprint",
-          "named": true
-        },
-        {
-          "type": "tls_issuerdn",
-          "named": true
-        },
-        {
-          "type": "tls_sni",
-          "named": true
-        },
-        {
-          "type": "tls_store",
-          "named": true
-        },
-        {
-          "type": "tls_subject",
-          "named": true
-        },
-        {
-          "type": "tls_version",
-          "named": true
-        },
-        {
-          "type": "to_md5",
-          "named": true
-        },
-        {
-          "type": "to_sha1",
-          "named": true
-        },
-        {
-          "type": "to_sha256",
-          "named": true
-        },
-        {
-          "type": "tos",
-          "named": true
-        },
-        {
-          "type": "ttl",
-          "named": true
-        },
-        {
-          "type": "udp_hdr",
-          "named": true
-        },
-        {
-          "type": "url_decode",
-          "named": true
-        },
-        {
-          "type": "window",
-          "named": true
-        },
-        {
-          "type": "within",
+          "type": "value",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "pcre",
+    "type": "other",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pcrexform",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "port",
@@ -1113,119 +188,9 @@
     }
   },
   {
-    "type": "port_range",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "priority",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "protocol",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "reference",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "replace",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "rev",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "rpc",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "seq",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "sid",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "source_file",
@@ -1255,207 +220,12 @@
     }
   },
   {
-    "type": "ssh_proto",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ssh_protoversion",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "decimal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ssh_software",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ssh_softwareversion",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ssl_state",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ssl_version",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "stream_size",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "string",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "negation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "target",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tcp_mss",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "text",
-    "named": true,
     "fields": {}
   },
   {
-    "type": "tls_cert_fingerprint",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tls_cert_issuer",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tls_cert_serial",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tls_cert_subject",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tls_fingerprint",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tls_issuerdn",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tls_sni",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tls_subject",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tls_version",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "text",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tos",
+    "type": "value",
     "named": true,
     "fields": {},
     "children": {
@@ -1463,26 +233,27 @@
       "required": true,
       "types": [
         {
+          "type": "decimal",
+          "named": true
+        },
+        {
           "type": "digit",
+          "named": true
+        },
+        {
+          "type": "hexidecimal",
           "named": true
         },
         {
           "type": "negation",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ttl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "digit",
+          "type": "other",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -1492,44 +263,6 @@
     "type": "variable",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "window",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "decimal",
-          "named": true
-        },
-        {
-          "type": "digit",
-          "named": true
-        },
-        {
-          "type": "negation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "within",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "digit",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "\"",
@@ -1552,23 +285,11 @@
     "named": false
   },
   {
-    "type": "*",
-    "named": false
-  },
-  {
     "type": ",",
     "named": false
   },
   {
     "type": "->",
-    "named": false
-  },
-  {
-    "type": "2_compat",
-    "named": false
-  },
-  {
-    "type": ":",
     "named": false
   },
   {
@@ -1596,47 +317,11 @@
     "named": false
   },
   {
-    "type": "ack:",
-    "named": false
-  },
-  {
     "type": "alert",
     "named": false
   },
   {
     "type": "any",
-    "named": false
-  },
-  {
-    "type": "both",
-    "named": false
-  },
-  {
-    "type": "bsize:",
-    "named": false
-  },
-  {
-    "type": "bypass",
-    "named": true
-  },
-  {
-    "type": "classtype:",
-    "named": false
-  },
-  {
-    "type": "client_hello",
-    "named": false
-  },
-  {
-    "type": "client_keyx",
-    "named": false
-  },
-  {
-    "type": "compress_whitespace",
-    "named": true
-  },
-  {
-    "type": "content:",
     "named": false
   },
   {
@@ -1648,15 +333,7 @@
     "named": true
   },
   {
-    "type": "depth:",
-    "named": false
-  },
-  {
     "type": "dhcp",
-    "named": false
-  },
-  {
-    "type": "distance:",
     "named": false
   },
   {
@@ -1668,123 +345,15 @@
     "named": false
   },
   {
-    "type": "dns.opcode:",
-    "named": false
-  },
-  {
-    "type": "dns_query",
-    "named": true
-  },
-  {
-    "type": "dotprefix",
-    "named": true
-  },
-  {
     "type": "drop",
     "named": false
-  },
-  {
-    "type": "dsize:",
-    "named": false
-  },
-  {
-    "type": "endswith",
-    "named": true
   },
   {
     "type": "enip",
     "named": false
   },
   {
-    "type": "eol",
-    "named": false
-  },
-  {
-    "type": "esec",
-    "named": false
-  },
-  {
-    "type": "established",
-    "named": false
-  },
-  {
-    "type": "fastpattern",
-    "named": false
-  },
-  {
-    "type": "file",
-    "named": false
-  },
-  {
-    "type": "fileext:",
-    "named": false
-  },
-  {
-    "type": "filemagic:",
-    "named": false
-  },
-  {
-    "type": "filemd5:",
-    "named": false
-  },
-  {
-    "type": "filename:",
-    "named": false
-  },
-  {
-    "type": "filesha1:",
-    "named": false
-  },
-  {
-    "type": "filesha256:",
-    "named": false
-  },
-  {
-    "type": "filesize:",
-    "named": false
-  },
-  {
-    "type": "filestore:",
-    "named": false
-  },
-  {
-    "type": "flow:",
-    "named": false
-  },
-  {
-    "type": "flowbits:",
-    "named": false
-  },
-  {
-    "type": "flowint:",
-    "named": false
-  },
-  {
-    "type": "fragbits:",
-    "named": false
-  },
-  {
-    "type": "fragoffset:",
-    "named": false
-  },
-  {
-    "type": "from_client",
-    "named": false
-  },
-  {
-    "type": "from_server",
-    "named": false
-  },
-  {
     "type": "ftp",
-    "named": false
-  },
-  {
-    "type": "geoip:",
-    "named": false
-  },
-  {
-    "type": "gid:",
     "named": false
   },
   {
@@ -1796,35 +365,7 @@
     "named": false
   },
   {
-    "type": "http_uri",
-    "named": true
-  },
-  {
     "type": "icmp",
-    "named": false
-  },
-  {
-    "type": "icmp_id:",
-    "named": false
-  },
-  {
-    "type": "icmp_seq:",
-    "named": false
-  },
-  {
-    "type": "icmpv6.mtu:",
-    "named": false
-  },
-  {
-    "type": "icmpv6_hdr",
-    "named": true
-  },
-  {
-    "type": "icode:",
-    "named": false
-  },
-  {
-    "type": "id:",
     "named": false
   },
   {
@@ -1840,55 +381,11 @@
     "named": false
   },
   {
-    "type": "ip_proto:",
-    "named": false
-  },
-  {
-    "type": "ipopts:",
-    "named": false
-  },
-  {
-    "type": "ipv4_hdr",
-    "named": true
-  },
-  {
-    "type": "ipv6_hdr",
-    "named": true
-  },
-  {
-    "type": "isdataat:",
-    "named": false
-  },
-  {
-    "type": "isnotset",
-    "named": false
-  },
-  {
-    "type": "isset",
-    "named": false
-  },
-  {
-    "type": "itype:",
-    "named": false
-  },
-  {
     "type": "krb5",
     "named": false
   },
   {
-    "type": "lsrr",
-    "named": false
-  },
-  {
-    "type": "metadata:",
-    "named": false
-  },
-  {
     "type": "modbus",
-    "named": false
-  },
-  {
-    "type": "msg:",
     "named": false
   },
   {
@@ -1900,47 +397,7 @@
     "named": false
   },
   {
-    "type": "no_frag",
-    "named": false
-  },
-  {
-    "type": "no_stream",
-    "named": false
-  },
-  {
-    "type": "noalert",
-    "named": false
-  },
-  {
-    "type": "nocase",
-    "named": true
-  },
-  {
-    "type": "nop",
-    "named": false
-  },
-  {
-    "type": "not_established",
-    "named": false
-  },
-  {
     "type": "ntp",
-    "named": false
-  },
-  {
-    "type": "offset:",
-    "named": false
-  },
-  {
-    "type": "only",
-    "named": false
-  },
-  {
-    "type": "only_frag",
-    "named": false
-  },
-  {
-    "type": "only_stream",
     "named": false
   },
   {
@@ -1948,27 +405,11 @@
     "named": false
   },
   {
-    "type": "pcre:",
-    "named": false
-  },
-  {
-    "type": "pcrexform:",
-    "named": false
-  },
-  {
-    "type": "prefilter",
+    "type": "port_range",
     "named": true
   },
   {
-    "type": "priority:",
-    "named": false
-  },
-  {
     "type": "rdp",
-    "named": false
-  },
-  {
-    "type": "reference:",
     "named": false
   },
   {
@@ -1988,68 +429,12 @@
     "named": false
   },
   {
-    "type": "relative",
-    "named": false
-  },
-  {
-    "type": "replace:",
-    "named": false
-  },
-  {
-    "type": "request/to_server",
-    "named": false
-  },
-  {
-    "type": "response/to_client",
-    "named": false
-  },
-  {
-    "type": "rev:",
-    "named": false
-  },
-  {
     "type": "rfb",
     "named": false
   },
   {
-    "type": "rpc:",
-    "named": false
-  },
-  {
-    "type": "rr",
-    "named": false
-  },
-  {
-    "type": "sameip",
+    "type": "separator",
     "named": true
-  },
-  {
-    "type": "satid",
-    "named": false
-  },
-  {
-    "type": "sec",
-    "named": false
-  },
-  {
-    "type": "seq:",
-    "named": false
-  },
-  {
-    "type": "server_hello",
-    "named": false
-  },
-  {
-    "type": "server_keyx",
-    "named": false
-  },
-  {
-    "type": "set",
-    "named": false
-  },
-  {
-    "type": "sid:",
-    "named": false
   },
   {
     "type": "sip",
@@ -2072,100 +457,8 @@
     "named": false
   },
   {
-    "type": "ssh.proto",
-    "named": false
-  },
-  {
-    "type": "ssh.protoversion:",
-    "named": false
-  },
-  {
-    "type": "ssh.software",
-    "named": false
-  },
-  {
-    "type": "ssh.softwareversion:",
-    "named": false
-  },
-  {
-    "type": "ssh_hassh",
-    "named": true
-  },
-  {
-    "type": "ssh_hassh_server",
-    "named": true
-  },
-  {
-    "type": "ssh_hassh_server_string",
-    "named": true
-  },
-  {
-    "type": "ssh_hassh_string",
-    "named": true
-  },
-  {
-    "type": "ssh_proto",
-    "named": false
-  },
-  {
-    "type": "ssh_software",
-    "named": false
-  },
-  {
-    "type": "ssl_state:",
-    "named": false
-  },
-  {
-    "type": "ssl_version:",
-    "named": false
-  },
-  {
-    "type": "sslv2",
-    "named": false
-  },
-  {
-    "type": "sslv3",
-    "named": false
-  },
-  {
-    "type": "ssn/flow",
-    "named": false
-  },
-  {
-    "type": "ssrr",
-    "named": false
-  },
-  {
-    "type": "startswith",
-    "named": true
-  },
-  {
-    "type": "stateless",
-    "named": false
-  },
-  {
-    "type": "stream_size:",
-    "named": false
-  },
-  {
-    "type": "strip_whitespace",
-    "named": true
-  },
-  {
-    "type": "target:",
-    "named": false
-  },
-  {
     "type": "tcp",
     "named": false
-  },
-  {
-    "type": "tcp.mss:",
-    "named": false
-  },
-  {
-    "type": "tcp_hdr",
-    "named": true
   },
   {
     "type": "tftp",
@@ -2176,175 +469,11 @@
     "named": false
   },
   {
-    "type": "tls.cert_fingerprint",
-    "named": false
-  },
-  {
-    "type": "tls.cert_issuer",
-    "named": false
-  },
-  {
-    "type": "tls.cert_serial",
-    "named": false
-  },
-  {
-    "type": "tls.cert_subject",
-    "named": false
-  },
-  {
-    "type": "tls.fingerprint",
-    "named": false
-  },
-  {
-    "type": "tls.issuerdn:",
-    "named": false
-  },
-  {
-    "type": "tls.sni",
-    "named": false
-  },
-  {
-    "type": "tls.subject:",
-    "named": false
-  },
-  {
-    "type": "tls.version:",
-    "named": false
-  },
-  {
-    "type": "tls1.0",
-    "named": false
-  },
-  {
-    "type": "tls1.1",
-    "named": false
-  },
-  {
-    "type": "tls1.2",
-    "named": false
-  },
-  {
-    "type": "tls1.3",
-    "named": false
-  },
-  {
-    "type": "tls_cert_expired",
-    "named": true
-  },
-  {
-    "type": "tls_cert_fingerprint",
-    "named": false
-  },
-  {
-    "type": "tls_cert_issuer",
-    "named": false
-  },
-  {
-    "type": "tls_cert_notafter",
-    "named": true
-  },
-  {
-    "type": "tls_cert_notbefore",
-    "named": true
-  },
-  {
-    "type": "tls_cert_serial",
-    "named": false
-  },
-  {
-    "type": "tls_cert_subject",
-    "named": false
-  },
-  {
-    "type": "tls_cert_valid",
-    "named": true
-  },
-  {
-    "type": "tls_certs",
-    "named": true
-  },
-  {
-    "type": "tls_sni",
-    "named": false
-  },
-  {
-    "type": "tls_store",
-    "named": true
-  },
-  {
-    "type": "to_client",
-    "named": false
-  },
-  {
-    "type": "to_md5",
-    "named": true
-  },
-  {
-    "type": "to_server",
-    "named": false
-  },
-  {
-    "type": "to_sha1",
-    "named": true
-  },
-  {
-    "type": "to_sha256",
-    "named": true
-  },
-  {
-    "type": "toggle",
-    "named": false
-  },
-  {
-    "type": "tos:",
-    "named": false
-  },
-  {
-    "type": "ts",
-    "named": false
-  },
-  {
-    "type": "ttl:",
-    "named": false
-  },
-  {
-    "type": "tx",
-    "named": false
-  },
-  {
     "type": "udp",
     "named": false
   },
   {
-    "type": "udp_hdr",
-    "named": true
-  },
-  {
-    "type": "unkown",
-    "named": false
-  },
-  {
-    "type": "unset",
-    "named": false
-  },
-  {
-    "type": "url_decode",
-    "named": true
-  },
-  {
-    "type": "window:",
-    "named": false
-  },
-  {
-    "type": "within:",
-    "named": false
-  },
-  {
     "type": "x",
-    "named": false
-  },
-  {
-    "type": "|",
     "named": false
   }
 ]
