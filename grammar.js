@@ -66,7 +66,7 @@ module.exports = grammar({
       'http2'
     ),
 
-    // The location can be IPv4, IPv6, DIR notation, grouping, exception/negation, var
+    // The location can be IPv4, IPv6, CIDR notation, grouping, exception/negation, var
     _location: $ => choice(
       $._standalone_location,
       $.group_location,
@@ -265,10 +265,20 @@ module.exports = grammar({
       $.ssh_hassh_server,
       $.ssh_hassh_server_string,
       // JA3 Keywords
-      
+      $.ja3_hash,
+      $.ja3_string,
+      $.ja3_string,
+      $.ja3s_hash,
+      $.ja3s_string,
       // Modbus Keywords
+      $.modbus,
       // DNP3 Keywords
+      $.dnp3_func,
+      $.dnp3_ind,
+      $.dnp3_obj,
+      $.dnp3_data,
       // ENIP/CIP Keywords
+
       // FTP/FTP-DATA Keywords
       // Kerberos Keywords
       // SNMP Keywords
@@ -490,6 +500,30 @@ module.exports = grammar({
     ssh_hassh_server: $ => 'ssh.hassh.server',
 
     ssh_hassh_server_string: $ => 'ssh.hassh.server.string',
+
+    ja3_hash: $ => choice(
+      'ja3.hash',
+      'ja3_hash',
+    ),
+
+    ja3_string: $ => choice(
+      'ja3.string',
+      'ja3_string',
+    ),
+
+    ja3s_hash: $ => 'ja3s.hash',
+
+    ja3s_string: $ => 'ja3s.string',
+
+    modbus: $ => seq('modbus:', $.text), // TODO 66.18 This is much more complex syntax
+
+    dnp3_func: $ => seq('dnp3_func:', choice($.digit, 'confirm', 'read', 'write', 'select', 'operate', 'direct_operate', 'direct_operate_nr', 'immed_freeze', 'immed_freeze_nr', 'freeze_clear', 'freeze_clear_nr', 'freeze_at_time', 'freeze_at_time_nr', 'cold_restart', 'warm_restart', 'initialize_data', 'initialize_appl', 'start_appl', 'stop_appl', 'save_config', 'enable_unsolicited', 'disable_unsolicited', 'assign_class', 'delay_measure', 'record_current_time', 'open_file', 'close_file', 'delete_file', 'get_file_info', 'authenticate_file', 'abort_file', 'activate_config', 'authenticate_req', 'authenticate_err', 'response', 'unsolicited_response', 'authenticate_respo')),
+
+    dnp3_ind: $ => seq('dnp3_ind:', repeat1(seq(choice('all_stations', 'class_1_events', 'class_2_events', 'class_3_events', 'need_time', 'local_control', 'device_trouble', 'device_restart', 'no_func_code_support', 'object_unknown', 'parameter_error', 'event_buffer_overflow', 'alread_executing', 'config_corrupt', 'reserved_2', 'reserved_1'), optional(',')))),
+
+    dnp3_obj: $ => seq('dnp3_obj:', $.digit, ',', $.digit),
+
+    dnp3_data: $ => 'dnp3_data',
 
     string: $ => seq(
       optional($.negation),
