@@ -113,6 +113,27 @@ module.exports = grammar({
 
     comma: $ => ',',
 
+    bitwise_and: $ => '&',
+
+    bitwise_or: $ => '^',
+
+    math_operator: $ => choice(
+      '+',
+      '-',
+      prev(-1, '*'), // Since this alone is also a valid constant
+      '/',
+      '<<',
+      '>>',
+      '=',
+      '>=',
+      '<=',
+      '==',
+      '!-',
+      '<>',
+      '>',
+      '<'
+    ),
+
     direction: $ => choice(
       '->',
       '<>'
@@ -141,19 +162,20 @@ module.exports = grammar({
     */
     digit: $ => seq(
       optional(
-        alias(choice(
-          '>',
-          '<',
-          '<=',
-          '>=',
-          '<>'
-        ), $.operator)
+        alias($.math_operator, $.operator)
       ),
       /\d+/,
       optional(seq(
         alias('-', $.min_max),
         /\d+/
-      ))
+      )),
+      optional($.unit)
+    ),
+
+    unit: $ => choice(
+      'KB',
+      'MB',
+      'GB'
     ),
 
     text: $ => seq( // String with no quotes, terminated at ':' or ';' or '\n'
@@ -175,14 +197,9 @@ module.exports = grammar({
     hexidecimal: $ => seq('x', /[0-9a-fA-F]{1,4}/),
 
     // Complex Values TODO:
-    // byte_text 6.7.12; byte_math 6.7.13; byte_jump 6.7.14; byte_extract 6.7.15
-    // Operators from itype, icode, icmpv6_mtu
-    // flowint syntax
-    // stream_size syntax
-    // 6.13.8; 6.15.11; 6.18;
-    // 6.20 comma seperated keywords not supported
-    // 6.28.6 value comparison not supported
-    // 6.30 check syntax constant existance
+    // 6.15.11; 6.18;
+    // WIP:: 6.20 comma seperated keywords not supported
+    // 6.7.12 Support for hex, dec, and oct would be nice
     value: $ => seq(
       optional($.negation),
       choice( // Here will be where all values are defined for every possible keyword
@@ -191,9 +208,13 @@ module.exports = grammar({
         $.decimal,
         $.hexidecimal,
         $.constant,
+        $.bitwise_or,
+        $.bitwise_and,
+        $.math_operator,
         alias($.text, $.other),
       ),
       optional(seq($.comma, $.value)), // Let a list of values exist
+      optional(seq($.comma, $._opts)), // Check for validity, should support comma seperated options per 6.20
     ),
 
     constant: $ => choice( // Since many strings are official values or constants we will scope those
@@ -233,6 +254,13 @@ module.exports = grammar({
 
       'src', 'dst', 'both', // IP Repuation constants
       'load', 'state', 'save', 'memcap', 'hashsize', // rule dataset constants
+
+      'relative', 'endian', 'dce', 'bitmask', 'string', // byte_test constants
+      'offset', 'depth', 'distance', 'within', 'oper', 'rvalue', 'result', // byte_math constants
+
+      'server', 'client', 'both', 'either', // steam_size constants
+
+      'name', 'ip_src', 'ip_dst', 'ip_pair', 'expire', // xbits keyword
     ),
 
   }
