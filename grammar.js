@@ -154,6 +154,14 @@ module.exports = grammar({
 
     hexidecimal: $ => seq('x', /[0-9a-fA-F]{1,4}/),
 
+    // Complex Values TODO:
+    // byte_text 6.7.12; byte_math 6.7.13; byte_jump 6.7.14; byte_extract 6.7.15
+    // Double Check HTTP Keywords
+    // Operators from itype, icode, icmpv6_mtu
+    // flowint syntax
+    // stream_size syntax
+    // 6.13.8; 6.15.11; 6.18; 6.12.5;
+    // 6.20 comma seperated keywords
     value: $ => seq(
       optional($.negation),
       choice( // Here will be where all values are defined for every possible keyword
@@ -186,7 +194,7 @@ module.exports = grammar({
       'delay_measure', 'record_current_time', 'open_file', 'close_file', 'delete_file', 'get_file_info',
       'authenticate_file', 'abort_file', 'activate_config', 'authenticate_req', 'authenticate_err', 'response',
       'unsolicited_response', 'authenticate_respo', // dnp3_func constants
-      
+
       'all_stations', 'class_1_events', 'class_2_events', 'class_3_events', 'need_time', 'local_control',
       'device_trouble', 'device_restart', 'no_func_code_support', 'object_unknown', 'parameter_error',
       'event_buffer_overflow', 'alread_executing', 'config_corrupt', 'reserved_2', 'reserved_1', // dnp3_ind constants
