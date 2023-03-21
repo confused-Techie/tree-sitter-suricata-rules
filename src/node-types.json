@@ -5,7 +5,17 @@
     "fields": {}
   },
   {
+    "type": "comma",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "constant",
     "named": true,
     "fields": {}
   },
@@ -153,6 +163,10 @@
           "named": true
         },
         {
+          "type": "semicolon",
+          "named": true
+        },
+        {
           "type": "separator",
           "named": true
         },
@@ -233,6 +247,14 @@
       "required": true,
       "types": [
         {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
           "type": "decimal",
           "named": true
         },
@@ -254,6 +276,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "value",
           "named": true
         }
       ]
@@ -285,6 +311,10 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -293,7 +323,7 @@
     "named": false
   },
   {
-    "type": ";",
+    "type": "2_compat",
     "named": false
   },
   {
@@ -317,11 +347,87 @@
     "named": false
   },
   {
+    "type": "abort_file",
+    "named": false
+  },
+  {
+    "type": "activate_config",
+    "named": false
+  },
+  {
     "type": "alert",
     "named": false
   },
   {
+    "type": "all_stations",
+    "named": false
+  },
+  {
+    "type": "alread_executing",
+    "named": false
+  },
+  {
     "type": "any",
+    "named": false
+  },
+  {
+    "type": "assign_class",
+    "named": false
+  },
+  {
+    "type": "authenticate_err",
+    "named": false
+  },
+  {
+    "type": "authenticate_file",
+    "named": false
+  },
+  {
+    "type": "authenticate_req",
+    "named": false
+  },
+  {
+    "type": "authenticate_respo",
+    "named": false
+  },
+  {
+    "type": "both",
+    "named": false
+  },
+  {
+    "type": "class_1_events",
+    "named": false
+  },
+  {
+    "type": "class_2_events",
+    "named": false
+  },
+  {
+    "type": "class_3_events",
+    "named": false
+  },
+  {
+    "type": "client_hello",
+    "named": false
+  },
+  {
+    "type": "client_kyx",
+    "named": false
+  },
+  {
+    "type": "close_file",
+    "named": false
+  },
+  {
+    "type": "cold_restart",
+    "named": false
+  },
+  {
+    "type": "config_corrupt",
+    "named": false
+  },
+  {
+    "type": "confirm",
     "named": false
   },
   {
@@ -333,7 +439,35 @@
     "named": true
   },
   {
+    "type": "delay_measure",
+    "named": false
+  },
+  {
+    "type": "delete_file",
+    "named": false
+  },
+  {
+    "type": "device_restart",
+    "named": false
+  },
+  {
+    "type": "device_trouble",
+    "named": false
+  },
+  {
     "type": "dhcp",
+    "named": false
+  },
+  {
+    "type": "direct_operate",
+    "named": false
+  },
+  {
+    "type": "direct_operate_nr",
+    "named": false
+  },
+  {
+    "type": "disable_unsolicited",
     "named": false
   },
   {
@@ -349,11 +483,63 @@
     "named": false
   },
   {
+    "type": "enable_unsolicited",
+    "named": false
+  },
+  {
     "type": "enip",
     "named": false
   },
   {
+    "type": "eol",
+    "named": false
+  },
+  {
+    "type": "esec",
+    "named": false
+  },
+  {
+    "type": "established",
+    "named": false
+  },
+  {
+    "type": "event_buffer_overflow",
+    "named": false
+  },
+  {
+    "type": "file",
+    "named": false
+  },
+  {
+    "type": "freeze_at_time",
+    "named": false
+  },
+  {
+    "type": "freeze_at_time_nr",
+    "named": false
+  },
+  {
+    "type": "freeze_clear",
+    "named": false
+  },
+  {
+    "type": "freeze_clear_nr",
+    "named": false
+  },
+  {
+    "type": "from_client",
+    "named": false
+  },
+  {
+    "type": "from_server",
+    "named": false
+  },
+  {
     "type": "ftp",
+    "named": false
+  },
+  {
+    "type": "get_file_info",
     "named": false
   },
   {
@@ -377,7 +563,31 @@
     "named": false
   },
   {
+    "type": "immed_freeze",
+    "named": false
+  },
+  {
+    "type": "immed_freeze_nr",
+    "named": false
+  },
+  {
+    "type": "initialize_appl",
+    "named": false
+  },
+  {
+    "type": "initialize_data",
+    "named": false
+  },
+  {
     "type": "ip",
+    "named": false
+  },
+  {
+    "type": "isnotset",
+    "named": false
+  },
+  {
+    "type": "isset",
     "named": false
   },
   {
@@ -385,7 +595,19 @@
     "named": false
   },
   {
+    "type": "local_control",
+    "named": false
+  },
+  {
+    "type": "lsrr",
+    "named": false
+  },
+  {
     "type": "modbus",
+    "named": false
+  },
+  {
+    "type": "need_time",
     "named": false
   },
   {
@@ -397,7 +619,59 @@
     "named": false
   },
   {
+    "type": "no_frag",
+    "named": false
+  },
+  {
+    "type": "no_func_code_support",
+    "named": false
+  },
+  {
+    "type": "no_stream",
+    "named": false
+  },
+  {
+    "type": "noalert",
+    "named": false
+  },
+  {
+    "type": "nop",
+    "named": false
+  },
+  {
+    "type": "not_established",
+    "named": false
+  },
+  {
     "type": "ntp",
+    "named": false
+  },
+  {
+    "type": "object_unknown",
+    "named": false
+  },
+  {
+    "type": "only",
+    "named": false
+  },
+  {
+    "type": "only_frag",
+    "named": false
+  },
+  {
+    "type": "only_stream",
+    "named": false
+  },
+  {
+    "type": "open_file",
+    "named": false
+  },
+  {
+    "type": "operate",
+    "named": false
+  },
+  {
+    "type": "parameter_error",
     "named": false
   },
   {
@@ -410,6 +684,14 @@
   },
   {
     "type": "rdp",
+    "named": false
+  },
+  {
+    "type": "read",
+    "named": false
+  },
+  {
+    "type": "record_current_time",
     "named": false
   },
   {
@@ -429,12 +711,68 @@
     "named": false
   },
   {
+    "type": "request/to_server",
+    "named": false
+  },
+  {
+    "type": "reserved_1",
+    "named": false
+  },
+  {
+    "type": "reserved_2",
+    "named": false
+  },
+  {
+    "type": "response",
+    "named": false
+  },
+  {
+    "type": "response/to_client",
+    "named": false
+  },
+  {
     "type": "rfb",
     "named": false
   },
   {
+    "type": "rr",
+    "named": false
+  },
+  {
+    "type": "satid",
+    "named": false
+  },
+  {
+    "type": "save_config",
+    "named": false
+  },
+  {
+    "type": "sec",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
+    "type": "semicolon",
+    "named": true
+  },
+  {
     "type": "separator",
     "named": true
+  },
+  {
+    "type": "server_hello",
+    "named": false
+  },
+  {
+    "type": "server_keyx",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
   },
   {
     "type": "sip",
@@ -457,6 +795,34 @@
     "named": false
   },
   {
+    "type": "sslv2",
+    "named": false
+  },
+  {
+    "type": "sslv3",
+    "named": false
+  },
+  {
+    "type": "ssn/flow",
+    "named": false
+  },
+  {
+    "type": "ssrr",
+    "named": false
+  },
+  {
+    "type": "start_appl",
+    "named": false
+  },
+  {
+    "type": "stateless",
+    "named": false
+  },
+  {
+    "type": "stop_appl",
+    "named": false
+  },
+  {
     "type": "tcp",
     "named": false
   },
@@ -469,7 +835,63 @@
     "named": false
   },
   {
+    "type": "tls1.0",
+    "named": false
+  },
+  {
+    "type": "tls1.1",
+    "named": false
+  },
+  {
+    "type": "tls1.2",
+    "named": false
+  },
+  {
+    "type": "tls1.3",
+    "named": false
+  },
+  {
+    "type": "to_client",
+    "named": false
+  },
+  {
+    "type": "to_server",
+    "named": false
+  },
+  {
+    "type": "toggle",
+    "named": false
+  },
+  {
+    "type": "ts",
+    "named": false
+  },
+  {
+    "type": "tx",
+    "named": false
+  },
+  {
     "type": "udp",
+    "named": false
+  },
+  {
+    "type": "unkown",
+    "named": false
+  },
+  {
+    "type": "unset",
+    "named": false
+  },
+  {
+    "type": "unsolicited_response",
+    "named": false
+  },
+  {
+    "type": "warm_restart",
+    "named": false
+  },
+  {
+    "type": "write",
     "named": false
   },
   {

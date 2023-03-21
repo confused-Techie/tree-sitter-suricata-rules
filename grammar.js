@@ -37,33 +37,9 @@ module.exports = grammar({
     ),
 
     protocol: $ => choice(
-      'tcp',
-      'udp',
-      'icmp',
-      'ip',
-      'http',
-      'ftp',
-      'tls',
-      'smb',
-      'dns',
-      'dcerpc',
-      'ssh',
-      'smtp',
-      'imap',
-      'modbus',
-      'dnp3',
-      'enip',
-      'nfs',
-      'ikev2',
-      'krb5',
-      'ntp',
-      'dhcp',
-      'rfb',
-      'rdp',
-      'snmp',
-      'tftp',
-      'sip',
-      'http2'
+      'tcp', 'udp', 'icmp', 'ip', 'http', 'ftp', 'tls', 'smb', 'dns', 'dcerpc',
+      'ssh', 'smtp', 'imap', 'modbus', 'dnp3', 'enip', 'nfs', 'ikev2', 'krb5',
+      'ntp', 'dhcp', 'rfb', 'rdp', 'snmp', 'tftp', 'sip', 'http2'
     ),
 
     // The location can be IPv4, IPv6, CIDR notation, grouping, exception/negation, var
@@ -133,6 +109,10 @@ module.exports = grammar({
 
     colon: $ => ':',
 
+    semicolon: $ => ';',
+
+    comma: $ => ',',
+
     direction: $ => choice(
       '->',
       '<>'
@@ -141,7 +121,7 @@ module.exports = grammar({
     options: $ => seq(
       '(',
       optional(
-        seq($._opt, ";", repeat(seq($._opt, ";")))
+        seq($._opt, $.semicolon, repeat(seq($._opt, $.semicolon)))
       ),
       ')'
     ),
@@ -158,9 +138,7 @@ module.exports = grammar({
 
     text: $ => seq( // String with no quotes, terminated at ':' or ';' or '\n'
       repeat1(
-        token.immediate(/[^"!:;\(\)\n]+/)
-        //token.immediate(/[^(^\d+$)][^"!:;\(\)\n]+/)
-        //token.immediate(/^[^(\d+)]+$|[^(^\d+$)][^"!:;\(\)\n]+/)
+        token.immediate(/[^"!:;,\(\)\n]+/)
       )
     ),
 
@@ -183,8 +161,36 @@ module.exports = grammar({
         $.digit,
         $.decimal,
         $.hexidecimal,
+        $.constant,
         alias($.text, $.other),
-      )
+      ),
+      optional(seq($.comma, $.value)), // Let a list of values exist
+    ),
+
+    constant: $ => choice( // Since many strings are official values or constants we will scope those
+      'rr', 'eol', 'nop', 'ts', 'sec', 'esec', 'lsrr', 'ssrr', 'satid', 'any', // ipopts constants
+      'only', // fastpattern constant
+      '*', // rpc constant
+      'set', 'isset', 'toggle', 'unset', 'isnotset', 'noalert', // flowbits constants
+      'to_client', 'to_server', 'from_client', 'from_server', 'established', 'not_established',
+      'stateless', 'only_stream', 'no_stream', 'only_frag', 'no_frag', // flow constants
+      'request/to_server', 'response/to_client', 'both', 'file', 'tx', 'ssn/flow', // filestore constants
+      'sslv2', 'sslv3', 'tls1.0', 'tls1.1', 'tls1.2', 'tls1.3', // ssl_version constants
+      'client_hello', 'server_hello', 'client_kyx', 'server_keyx', 'unkown', // ssl_state constants
+      '2_compat', // ssh.protoversion constants
+
+      'confirm', 'read', 'write', 'select', 'operate', 'direct_operate', 'direct_operate_nr',
+      'immed_freeze', 'immed_freeze_nr', 'freeze_clear', 'freeze_clear_nr', 'freeze_at_time',
+      'freeze_at_time_nr', 'cold_restart', 'warm_restart', 'initialize_data', 'initialize_appl',
+      'start_appl', 'stop_appl', 'save_config', 'enable_unsolicited', 'disable_unsolicited', 'assign_class',
+      'delay_measure', 'record_current_time', 'open_file', 'close_file', 'delete_file', 'get_file_info',
+      'authenticate_file', 'abort_file', 'activate_config', 'authenticate_req', 'authenticate_err', 'response',
+      'unsolicited_response', 'authenticate_respo', // dnp3_func constants
+      
+      'all_stations', 'class_1_events', 'class_2_events', 'class_3_events', 'need_time', 'local_control',
+      'device_trouble', 'device_restart', 'no_func_code_support', 'object_unknown', 'parameter_error',
+      'event_buffer_overflow', 'alread_executing', 'config_corrupt', 'reserved_2', 'reserved_1', // dnp3_ind constants
+
     ),
 
   }

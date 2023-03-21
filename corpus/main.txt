@@ -122,7 +122,7 @@ alert tcp 10.0.0.0 any -> [10.0.0.0, 10.0.0.1] any ()
 Generic Options
 ======
 
-alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32;)
+alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32.2;flowbits:*;)
 
 ------
 
@@ -145,4 +145,4 @@ alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32;)
     (separator)
     (value
       (negation)
-      (digit))))
+      (other))))

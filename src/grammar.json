@@ -519,6 +519,14 @@
       "type": "STRING",
       "value": ":"
     },
+    "semicolon": {
+      "type": "STRING",
+      "value": ";"
+    },
+    "comma": {
+      "type": "STRING",
+      "value": ","
+    },
     "direction": {
       "type": "CHOICE",
       "members": [
@@ -550,8 +558,8 @@
                   "name": "_opt"
                 },
                 {
-                  "type": "STRING",
-                  "value": ";"
+                  "type": "SYMBOL",
+                  "name": "semicolon"
                 },
                 {
                   "type": "REPEAT",
@@ -563,8 +571,8 @@
                         "name": "_opt"
                       },
                       {
-                        "type": "STRING",
-                        "value": ";"
+                        "type": "SYMBOL",
+                        "name": "semicolon"
                       }
                     ]
                   }
@@ -661,7 +669,7 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "[^\"!:;\\(\\)\\n]+"
+              "value": "[^\"!:;,\\(\\)\\n]+"
             }
           }
         }
@@ -742,6 +750,10 @@
               "name": "hexidecimal"
             },
             {
+              "type": "SYMBOL",
+              "name": "constant"
+            },
+            {
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
@@ -751,6 +763,432 @@
               "value": "other"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comma"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "constant": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rr"
+        },
+        {
+          "type": "STRING",
+          "value": "eol"
+        },
+        {
+          "type": "STRING",
+          "value": "nop"
+        },
+        {
+          "type": "STRING",
+          "value": "ts"
+        },
+        {
+          "type": "STRING",
+          "value": "sec"
+        },
+        {
+          "type": "STRING",
+          "value": "esec"
+        },
+        {
+          "type": "STRING",
+          "value": "lsrr"
+        },
+        {
+          "type": "STRING",
+          "value": "ssrr"
+        },
+        {
+          "type": "STRING",
+          "value": "satid"
+        },
+        {
+          "type": "STRING",
+          "value": "any"
+        },
+        {
+          "type": "STRING",
+          "value": "only"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "STRING",
+          "value": "isset"
+        },
+        {
+          "type": "STRING",
+          "value": "toggle"
+        },
+        {
+          "type": "STRING",
+          "value": "unset"
+        },
+        {
+          "type": "STRING",
+          "value": "isnotset"
+        },
+        {
+          "type": "STRING",
+          "value": "noalert"
+        },
+        {
+          "type": "STRING",
+          "value": "to_client"
+        },
+        {
+          "type": "STRING",
+          "value": "to_server"
+        },
+        {
+          "type": "STRING",
+          "value": "from_client"
+        },
+        {
+          "type": "STRING",
+          "value": "from_server"
+        },
+        {
+          "type": "STRING",
+          "value": "established"
+        },
+        {
+          "type": "STRING",
+          "value": "not_established"
+        },
+        {
+          "type": "STRING",
+          "value": "stateless"
+        },
+        {
+          "type": "STRING",
+          "value": "only_stream"
+        },
+        {
+          "type": "STRING",
+          "value": "no_stream"
+        },
+        {
+          "type": "STRING",
+          "value": "only_frag"
+        },
+        {
+          "type": "STRING",
+          "value": "no_frag"
+        },
+        {
+          "type": "STRING",
+          "value": "request/to_server"
+        },
+        {
+          "type": "STRING",
+          "value": "response/to_client"
+        },
+        {
+          "type": "STRING",
+          "value": "both"
+        },
+        {
+          "type": "STRING",
+          "value": "file"
+        },
+        {
+          "type": "STRING",
+          "value": "tx"
+        },
+        {
+          "type": "STRING",
+          "value": "ssn/flow"
+        },
+        {
+          "type": "STRING",
+          "value": "sslv2"
+        },
+        {
+          "type": "STRING",
+          "value": "sslv3"
+        },
+        {
+          "type": "STRING",
+          "value": "tls1.0"
+        },
+        {
+          "type": "STRING",
+          "value": "tls1.1"
+        },
+        {
+          "type": "STRING",
+          "value": "tls1.2"
+        },
+        {
+          "type": "STRING",
+          "value": "tls1.3"
+        },
+        {
+          "type": "STRING",
+          "value": "client_hello"
+        },
+        {
+          "type": "STRING",
+          "value": "server_hello"
+        },
+        {
+          "type": "STRING",
+          "value": "client_kyx"
+        },
+        {
+          "type": "STRING",
+          "value": "server_keyx"
+        },
+        {
+          "type": "STRING",
+          "value": "unkown"
+        },
+        {
+          "type": "STRING",
+          "value": "2_compat"
+        },
+        {
+          "type": "STRING",
+          "value": "confirm"
+        },
+        {
+          "type": "STRING",
+          "value": "read"
+        },
+        {
+          "type": "STRING",
+          "value": "write"
+        },
+        {
+          "type": "STRING",
+          "value": "select"
+        },
+        {
+          "type": "STRING",
+          "value": "operate"
+        },
+        {
+          "type": "STRING",
+          "value": "direct_operate"
+        },
+        {
+          "type": "STRING",
+          "value": "direct_operate_nr"
+        },
+        {
+          "type": "STRING",
+          "value": "immed_freeze"
+        },
+        {
+          "type": "STRING",
+          "value": "immed_freeze_nr"
+        },
+        {
+          "type": "STRING",
+          "value": "freeze_clear"
+        },
+        {
+          "type": "STRING",
+          "value": "freeze_clear_nr"
+        },
+        {
+          "type": "STRING",
+          "value": "freeze_at_time"
+        },
+        {
+          "type": "STRING",
+          "value": "freeze_at_time_nr"
+        },
+        {
+          "type": "STRING",
+          "value": "cold_restart"
+        },
+        {
+          "type": "STRING",
+          "value": "warm_restart"
+        },
+        {
+          "type": "STRING",
+          "value": "initialize_data"
+        },
+        {
+          "type": "STRING",
+          "value": "initialize_appl"
+        },
+        {
+          "type": "STRING",
+          "value": "start_appl"
+        },
+        {
+          "type": "STRING",
+          "value": "stop_appl"
+        },
+        {
+          "type": "STRING",
+          "value": "save_config"
+        },
+        {
+          "type": "STRING",
+          "value": "enable_unsolicited"
+        },
+        {
+          "type": "STRING",
+          "value": "disable_unsolicited"
+        },
+        {
+          "type": "STRING",
+          "value": "assign_class"
+        },
+        {
+          "type": "STRING",
+          "value": "delay_measure"
+        },
+        {
+          "type": "STRING",
+          "value": "record_current_time"
+        },
+        {
+          "type": "STRING",
+          "value": "open_file"
+        },
+        {
+          "type": "STRING",
+          "value": "close_file"
+        },
+        {
+          "type": "STRING",
+          "value": "delete_file"
+        },
+        {
+          "type": "STRING",
+          "value": "get_file_info"
+        },
+        {
+          "type": "STRING",
+          "value": "authenticate_file"
+        },
+        {
+          "type": "STRING",
+          "value": "abort_file"
+        },
+        {
+          "type": "STRING",
+          "value": "activate_config"
+        },
+        {
+          "type": "STRING",
+          "value": "authenticate_req"
+        },
+        {
+          "type": "STRING",
+          "value": "authenticate_err"
+        },
+        {
+          "type": "STRING",
+          "value": "response"
+        },
+        {
+          "type": "STRING",
+          "value": "unsolicited_response"
+        },
+        {
+          "type": "STRING",
+          "value": "authenticate_respo"
+        },
+        {
+          "type": "STRING",
+          "value": "all_stations"
+        },
+        {
+          "type": "STRING",
+          "value": "class_1_events"
+        },
+        {
+          "type": "STRING",
+          "value": "class_2_events"
+        },
+        {
+          "type": "STRING",
+          "value": "class_3_events"
+        },
+        {
+          "type": "STRING",
+          "value": "need_time"
+        },
+        {
+          "type": "STRING",
+          "value": "local_control"
+        },
+        {
+          "type": "STRING",
+          "value": "device_trouble"
+        },
+        {
+          "type": "STRING",
+          "value": "device_restart"
+        },
+        {
+          "type": "STRING",
+          "value": "no_func_code_support"
+        },
+        {
+          "type": "STRING",
+          "value": "object_unknown"
+        },
+        {
+          "type": "STRING",
+          "value": "parameter_error"
+        },
+        {
+          "type": "STRING",
+          "value": "event_buffer_overflow"
+        },
+        {
+          "type": "STRING",
+          "value": "alread_executing"
+        },
+        {
+          "type": "STRING",
+          "value": "config_corrupt"
+        },
+        {
+          "type": "STRING",
+          "value": "reserved_2"
+        },
+        {
+          "type": "STRING",
+          "value": "reserved_1"
         }
       ]
     }
