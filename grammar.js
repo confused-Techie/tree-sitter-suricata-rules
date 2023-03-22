@@ -202,6 +202,7 @@ module.exports = grammar({
 
     // Complex Values TODO:
     // 6.18 Support for Modbus functions
+    // 66.20 comma seperated options
     value: $ => seq(
       optional($.negation),
       choice( // Here will be where all values are defined for every possible keyword
