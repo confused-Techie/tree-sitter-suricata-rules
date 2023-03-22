@@ -120,7 +120,7 @@ module.exports = grammar({
     math_operator: $ => choice(
       '+',
       '-',
-      prev(-1, '*'), // Since this alone is also a valid constant
+      prec(-1, '*'), // Since this alone is also a valid constant
       '/',
       '<<',
       '>>',
@@ -214,7 +214,7 @@ module.exports = grammar({
         alias($.text, $.other),
       ),
       optional(seq($.comma, $.value)), // Let a list of values exist
-      optional(seq($.comma, $._opts)), // Check for validity, should support comma seperated options per 6.20
+      //optional(seq($.comma, $._opt, $.semicolon)), // Check for validity, should support comma seperated options per 6.20
     ),
 
     constant: $ => choice( // Since many strings are official values or constants we will scope those

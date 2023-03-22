@@ -34,6 +34,10 @@
         {
           "type": "operator",
           "named": true
+        },
+        {
+          "type": "unit",
+          "named": true
         }
       ]
     }
@@ -165,6 +169,16 @@
     "fields": {}
   },
   {
+    "type": "math_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "options",
     "named": true,
     "fields": {},
@@ -253,6 +267,11 @@
     "fields": {}
   },
   {
+    "type": "unit",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "value",
     "named": true,
     "fields": {},
@@ -260,6 +279,14 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
         {
           "type": "comma",
           "named": true
@@ -278,6 +305,10 @@
         },
         {
           "type": "hexidecimal",
+          "named": true
+        },
+        {
+          "type": "math_operator",
           "named": true
         },
         {
@@ -305,6 +336,10 @@
     "fields": {}
   },
   {
+    "type": "!-",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -329,7 +364,15 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
     "named": false
   },
   {
@@ -337,11 +380,47 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": "2_compat",
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "<>",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
     "named": false
   },
   {
@@ -373,7 +452,19 @@
     "named": false
   },
   {
+    "type": "GB",
+    "named": false
+  },
+  {
     "type": "INVITE",
+    "named": false
+  },
+  {
+    "type": "KB",
+    "named": false
+  },
+  {
+    "type": "MB",
     "named": false
   },
   {
@@ -477,6 +568,18 @@
     "named": false
   },
   {
+    "type": "bitmask",
+    "named": false
+  },
+  {
+    "type": "bitwise_and",
+    "named": true
+  },
+  {
+    "type": "bitwise_or",
+    "named": true
+  },
+  {
     "type": "both",
     "named": false
   },
@@ -513,6 +616,10 @@
     "named": false
   },
   {
+    "type": "client",
+    "named": false
+  },
+  {
     "type": "client_hello",
     "named": false
   },
@@ -541,6 +648,10 @@
     "named": false
   },
   {
+    "type": "dce",
+    "named": false
+  },
+  {
     "type": "dcerpc",
     "named": false
   },
@@ -554,6 +665,10 @@
   },
   {
     "type": "delete_file",
+    "named": false
+  },
+  {
+    "type": "depth",
     "named": false
   },
   {
@@ -581,6 +696,10 @@
     "named": false
   },
   {
+    "type": "distance",
+    "named": false
+  },
+  {
     "type": "dnp3",
     "named": false
   },
@@ -601,7 +720,15 @@
     "named": false
   },
   {
+    "type": "either",
+    "named": false
+  },
+  {
     "type": "enable_unsolicited",
+    "named": false
+  },
+  {
+    "type": "endian",
     "named": false
   },
   {
@@ -622,6 +749,10 @@
   },
   {
     "type": "event_buffer_overflow",
+    "named": false
+  },
+  {
+    "type": "expire",
     "named": false
   },
   {
@@ -709,6 +840,18 @@
     "named": false
   },
   {
+    "type": "ip_dst",
+    "named": false
+  },
+  {
+    "type": "ip_pair",
+    "named": false
+  },
+  {
+    "type": "ip_src",
+    "named": false
+  },
+  {
     "type": "isnotset",
     "named": false
   },
@@ -746,6 +889,10 @@
   },
   {
     "type": "modbus",
+    "named": false
+  },
+  {
+    "type": "name",
     "named": false
   },
   {
@@ -797,6 +944,10 @@
     "named": false
   },
   {
+    "type": "offset",
+    "named": false
+  },
+  {
     "type": "only",
     "named": false
   },
@@ -813,12 +964,12 @@
     "named": false
   },
   {
-    "type": "operate",
+    "type": "oper",
     "named": false
   },
   {
-    "type": "operator",
-    "named": true
+    "type": "operate",
+    "named": false
   },
   {
     "type": "parameter_error",
@@ -865,6 +1016,10 @@
     "named": false
   },
   {
+    "type": "relative",
+    "named": false
+  },
+  {
     "type": "request/to_server",
     "named": false
   },
@@ -885,6 +1040,10 @@
     "named": false
   },
   {
+    "type": "result",
+    "named": false
+  },
+  {
     "type": "retain",
     "named": false
   },
@@ -898,6 +1057,10 @@
   },
   {
     "type": "rr",
+    "named": false
+  },
+  {
+    "type": "rvalue",
     "named": false
   },
   {
@@ -931,6 +1094,10 @@
   {
     "type": "separator",
     "named": true
+  },
+  {
+    "type": "server",
+    "named": false
   },
   {
     "type": "server_hello",
@@ -1002,6 +1169,10 @@
   },
   {
     "type": "stor",
+    "named": false
+  },
+  {
+    "type": "string",
     "named": false
   },
   {
@@ -1098,6 +1269,10 @@
   },
   {
     "type": "will_retain",
+    "named": false
+  },
+  {
+    "type": "within",
     "named": false
   },
   {

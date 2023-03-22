@@ -527,6 +527,79 @@
       "type": "STRING",
       "value": ","
     },
+    "bitwise_and": {
+      "type": "STRING",
+      "value": "&"
+    },
+    "bitwise_or": {
+      "type": "STRING",
+      "value": "^"
+    },
+    "math_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "PREC",
+          "value": -1,
+          "content": {
+            "type": "STRING",
+            "value": "*"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "STRING",
+          "value": "<<"
+        },
+        {
+          "type": "STRING",
+          "value": ">>"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": ">="
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": "=="
+        },
+        {
+          "type": "STRING",
+          "value": "!-"
+        },
+        {
+          "type": "STRING",
+          "value": "<>"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        }
+      ]
+    },
     "direction": {
       "type": "CHOICE",
       "members": [
@@ -639,25 +712,8 @@
             {
               "type": "ALIAS",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ">"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "<"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "<="
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ">="
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "math_operator"
               },
               "named": true,
               "value": "operator"
@@ -696,6 +752,35 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "unit"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "unit": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "KB"
+        },
+        {
+          "type": "STRING",
+          "value": "MB"
+        },
+        {
+          "type": "STRING",
+          "value": "GB"
         }
       ]
     },
@@ -791,6 +876,18 @@
             {
               "type": "SYMBOL",
               "name": "constant"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bitwise_or"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bitwise_and"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "math_operator"
             },
             {
               "type": "ALIAS",
@@ -1436,6 +1533,90 @@
         {
           "type": "STRING",
           "value": "hashsize"
+        },
+        {
+          "type": "STRING",
+          "value": "relative"
+        },
+        {
+          "type": "STRING",
+          "value": "endian"
+        },
+        {
+          "type": "STRING",
+          "value": "dce"
+        },
+        {
+          "type": "STRING",
+          "value": "bitmask"
+        },
+        {
+          "type": "STRING",
+          "value": "string"
+        },
+        {
+          "type": "STRING",
+          "value": "offset"
+        },
+        {
+          "type": "STRING",
+          "value": "depth"
+        },
+        {
+          "type": "STRING",
+          "value": "distance"
+        },
+        {
+          "type": "STRING",
+          "value": "within"
+        },
+        {
+          "type": "STRING",
+          "value": "oper"
+        },
+        {
+          "type": "STRING",
+          "value": "rvalue"
+        },
+        {
+          "type": "STRING",
+          "value": "result"
+        },
+        {
+          "type": "STRING",
+          "value": "server"
+        },
+        {
+          "type": "STRING",
+          "value": "client"
+        },
+        {
+          "type": "STRING",
+          "value": "both"
+        },
+        {
+          "type": "STRING",
+          "value": "either"
+        },
+        {
+          "type": "STRING",
+          "value": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "ip_src"
+        },
+        {
+          "type": "STRING",
+          "value": "ip_dst"
+        },
+        {
+          "type": "STRING",
+          "value": "ip_pair"
+        },
+        {
+          "type": "STRING",
+          "value": "expire"
         }
       ]
     }
