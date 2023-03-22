@@ -154,6 +154,11 @@
     "fields": {}
   },
   {
+    "type": "hexstring",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "ipv4",
     "named": true,
     "fields": {}
@@ -305,6 +310,10 @@
         },
         {
           "type": "hexidecimal",
+          "named": true
+        },
+        {
+          "type": "hexstring",
           "named": true
         },
         {

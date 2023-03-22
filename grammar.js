@@ -196,9 +196,10 @@ module.exports = grammar({
 
     hexidecimal: $ => seq('x', /[0-9a-fA-F]{1,4}/),
 
+    hexstring: $ => seq(/\d/, 'x', /[0-9a-fA-F]{1,4}/),
+
     // Complex Values TODO:
-    // 6.15.11; 6.18;
-    // WIP:: 6.20 comma seperated keywords not supported
+    // 6.18 Support for Modbus functions
     // 6.7.12 Support for hex, dec, and oct would be nice
     value: $ => seq(
       optional($.negation),
@@ -207,6 +208,7 @@ module.exports = grammar({
         $.digit,
         $.decimal,
         $.hexidecimal,
+        $.hexstring,
         $.constant,
         $.bitwise_or,
         $.bitwise_and,
