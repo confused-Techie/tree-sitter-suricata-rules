@@ -198,9 +198,10 @@ module.exports = grammar({
 
     hexstring: $ => seq(/\d/, 'x', /[0-9a-fA-F]{1,4}/),
 
+    octal: $ => seq('o', /\d+/),
+
     // Complex Values TODO:
     // 6.18 Support for Modbus functions
-    // 6.7.12 Support for hex, dec, and oct would be nice
     value: $ => seq(
       optional($.negation),
       choice( // Here will be where all values are defined for every possible keyword
@@ -209,6 +210,7 @@ module.exports = grammar({
         $.decimal,
         $.hexidecimal,
         $.hexstring,
+        $.octal,
         $.constant,
         $.bitwise_or,
         $.bitwise_and,

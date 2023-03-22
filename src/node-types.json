@@ -179,6 +179,11 @@
     "fields": {}
   },
   {
+    "type": "octal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "operator",
     "named": true,
     "fields": {}
@@ -322,6 +327,10 @@
         },
         {
           "type": "negation",
+          "named": true
+        },
+        {
+          "type": "octal",
           "named": true
         },
         {
@@ -946,6 +955,10 @@
   },
   {
     "type": "ntp",
+    "named": false
+  },
+  {
+    "type": "o",
     "named": false
   },
   {

@@ -856,6 +856,19 @@
         }
       ]
     },
+    "octal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "o"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        }
+      ]
+    },
     "value": {
       "type": "SEQ",
       "members": [
@@ -893,6 +906,10 @@
             {
               "type": "SYMBOL",
               "name": "hexstring"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "octal"
             },
             {
               "type": "SYMBOL",
