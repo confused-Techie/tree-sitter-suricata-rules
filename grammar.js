@@ -191,7 +191,7 @@ module.exports = grammar({
 
     string: $ => token(choice(
       seq('"', /[^"\n]*/, '"'),
-      seq("”", /[^”\n]*/, "”"),
+      seq("”", /[^”\n]*/, "”"), // U+201D support 
     )),
 
     decimal: $ => /\d+.\d+/,
