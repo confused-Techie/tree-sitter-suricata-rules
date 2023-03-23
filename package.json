@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-suricata-rules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "bindings/node",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "confused-Techie",
   "license": "MIT",
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.7"
+    "tree-sitter-cli": "^0.19.1"
   },
   "dependencies": {
     "nan": "^2.17.0"
