@@ -140,12 +140,20 @@ alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32.2;fl
     (separator)
     (value
       (string))
+    (semicolon)
     (keyword)
+    (semicolon)
     (keyword)
     (separator)
     (value
       (negation)
-      (other))))
+      (other))
+    (semicolon)
+    (keyword)
+    (separator)
+    (value
+      (constant))
+    (semicolon)))
 
 ======
 6.1 -> 6.2.6
@@ -154,6 +162,19 @@ alert tcp 10.0.0.0 any -> 10.0.0.0 any (msg:"hello world";ja2s.hash;tos:!32.2;fl
 drop tcp $HOME_NET any -> $EXTERNAL_NET any (msg:”ET TROJAN Likely Bot Nick in IRC (USA +..)”; flow:established,to_server; flowbits:isset,is_proto_irc; content:”NICK “; pcre:”/NICK .*USA.*[0-9]{3,}/i”; reference:url,doc.emergingthreats.net/2008124; classtype:trojan-activity; sid:2008124; rev:2;)
 
 ------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (variable)
+    (port)
+    (direction)
+    (variable)
+    (port))
+  (options
+    (keyword)
+    (separator)))
 
 ======
 6.3.1
@@ -210,3 +231,11 @@ alert ip any any -> any any (msg:”TGI HUNT non-DiffServ aware TOS setting”; 
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (flags:S,12; tcp.hdr; content:”|02 04|”; offset:20; byte_test:2,<,536,0,big,relative; sid:1234; rev:5;)
 
 ------
+
+===
+String?
+===
+
+alert tcp any any -> any any (msg:”ET TROJAN Likely Bot Nick in IRC (USA +..)”;)
+
+---

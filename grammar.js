@@ -51,6 +51,7 @@ module.exports = grammar({
     _standalone_location: $ => seq(
       optional($.negation),
       choice(
+        'any',
         $.variable,
         $.ipv4,
         $.ipv6,
@@ -115,6 +116,10 @@ module.exports = grammar({
 
     bitwise_and: $ => '&',
 
+    paren_open: $ => '(',
+
+    paren_close: $ => ')',
+
     bitwise_or: $ => '^',
 
     math_operator: $ => choice(
@@ -140,11 +145,11 @@ module.exports = grammar({
     ),
 
     options: $ => seq(
-      '(',
+      $.paren_open,
       optional(
         seq($._opt, $.semicolon, repeat(seq($._opt, $.semicolon)))
       ),
-      ')'
+      $.paren_close,
     ),
 
     _opt: $ => seq(
@@ -184,13 +189,10 @@ module.exports = grammar({
       )
     ),
 
-    string: $ => seq(
-      '"',
-      repeat(
-        token.immediate(/[^"\n]+/)
-      ),
-      '"'
-    ),
+    string: $ => token(choice(
+      seq('"', /[^"\n]*/, '"'),
+      seq("”", /[^”\n]*/, "”"),
+    )),
 
     decimal: $ => /\d+.\d+/,
 

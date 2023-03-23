@@ -194,10 +194,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
           "named": true
         },
         {
@@ -270,11 +278,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "string",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "unit",
@@ -358,23 +361,11 @@
     "named": false
   },
   {
-    "type": "\"",
-    "named": false
-  },
-  {
     "type": "#",
     "named": false
   },
   {
     "type": "$",
-    "named": false
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
     "named": false
   },
   {
@@ -998,6 +989,14 @@
     "named": false
   },
   {
+    "type": "paren_close",
+    "named": true
+  },
+  {
+    "type": "paren_open",
+    "named": true
+  },
+  {
     "type": "pass",
     "named": false
   },
@@ -1192,6 +1191,10 @@
   {
     "type": "stor",
     "named": false
+  },
+  {
+    "type": "string",
+    "named": true
   },
   {
     "type": "string",
