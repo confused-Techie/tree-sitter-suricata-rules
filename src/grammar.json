@@ -738,27 +738,23 @@
         {
           "type": "PATTERN",
           "value": "\\d+"
-        },
+        }
+      ]
+    },
+    "digit_units": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "STRING",
-                    "value": "-"
-                  },
-                  "named": true,
-                  "value": "min_max"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\d+"
-                }
-              ]
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "math_operator"
+              },
+              "named": true,
+              "value": "operator"
             },
             {
               "type": "BLANK"
@@ -766,16 +762,38 @@
           ]
         },
         {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unit"
+        }
+      ]
+    },
+    "digit_range": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "unit"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "math_operator"
+              },
+              "named": true,
+              "value": "operator"
             },
             {
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+-\\d+"
         }
       ]
     },
@@ -793,21 +811,6 @@
         {
           "type": "STRING",
           "value": "GB"
-        }
-      ]
-    },
-    "text": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "PATTERN",
-              "value": "[^\"!:;,\\(\\)\\n]+"
-            }
-          }
         }
       ]
     },
@@ -855,7 +858,7 @@
     },
     "decimal": {
       "type": "PATTERN",
-      "value": "\\d+.\\d+"
+      "value": "\\d+\\.\\d+"
     },
     "hexidecimal": {
       "type": "SEQ",
@@ -875,7 +878,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\d"
+          "value": "[0-9]"
         },
         {
           "type": "STRING",
@@ -919,44 +922,57 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "string"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "digit"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "decimal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "hexidecimal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "hexstring"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "octal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "constant"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bitwise_or"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bitwise_and"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "math_operator"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "digit"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "digit_range"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "digit_units"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "decimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hexidecimal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hexstring"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "octal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "constant"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "bitwise_or"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "bitwise_and"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "math_operator"
+                }
+              ]
             },
             {
               "type": "ALIAS",
@@ -1688,6 +1704,10 @@
           "value": "expire"
         }
       ]
+    },
+    "text": {
+      "type": "PATTERN",
+      "value": "[^\"!:;,\\(\\)\\n]+"
     }
   },
   "extras": [

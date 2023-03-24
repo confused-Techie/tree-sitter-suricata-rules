@@ -165,16 +165,39 @@ module.exports = grammar({
         ex. Any generic comparison operator
         ex. '1-9' for numeric ranges
     */
+    //digiter: $ => seq(
+      // optional(
+        // alias($.math_operator, $.operator)
+      // ),
+      // token(/\d+/),
+      // optional(seq(
+        // alias('-', $.min_max),
+        // token(/\d+/)
+      // )),
+      // optional($.unit)
+    // ),
+
+    // digit: $ => seq(
+      // optional(alias($.math_operator, $.operator)),
+      // repeat1(/\d+/),
+      // optional(seq(alias('-', $.min_max), repeat1(/\d+/))),
+      // optional($.unit)
+    // ),
+
     digit: $ => seq(
-      optional(
-        alias($.math_operator, $.operator)
-      ),
+      optional(alias($.math_operator, $.operator)),
+      /\d+/
+    ),
+
+    digit_units: $ => seq(
+      optional(alias($.math_operator, $.operator)),
       /\d+/,
-      optional(seq(
-        alias('-', $.min_max),
-        /\d+/
-      )),
-      optional($.unit)
+      $.unit,
+    ),
+
+    digit_range: $ => seq(
+      optional(alias($.math_operator, $.operator)),
+      /\d+-\d+/
     ),
 
     unit: $ => choice(
@@ -183,22 +206,16 @@ module.exports = grammar({
       'GB'
     ),
 
-    text: $ => seq( // String with no quotes, terminated at ':' or ';' or '\n'
-      repeat1(
-        token.immediate(/[^"!:;,\(\)\n]+/)
-      )
-    ),
-
     string: $ => token(choice(
       seq('"', /[^"\n]*/, '"'),
-      seq("”", /[^”\n]*/, "”"), // U+201D support 
+      seq("”", /[^”\n]*/, "”"), // U+201D support
     )),
 
-    decimal: $ => /\d+.\d+/,
+    decimal: $ => /\d+\.\d+/,
 
     hexidecimal: $ => seq('x', /[0-9a-fA-F]{1,4}/),
 
-    hexstring: $ => seq(/\d/, 'x', /[0-9a-fA-F]{1,4}/),
+    hexstring: $ => seq(/[0-9]/, 'x', /[0-9a-fA-F]{1,4}/),
 
     octal: $ => seq('o', /\d+/),
 
@@ -207,19 +224,36 @@ module.exports = grammar({
     // 66.20 comma seperated options
     value: $ => seq(
       optional($.negation),
-      choice( // Here will be where all values are defined for every possible keyword
-        $.string,
-        $.digit,
-        $.decimal,
-        $.hexidecimal,
-        $.hexstring,
-        $.octal,
-        $.constant,
-        $.bitwise_or,
-        $.bitwise_and,
-        $.math_operator,
-        alias($.text, $.other),
+      choice(
+        choice(
+          $.string,
+          $.digit,
+          $.digit_range,
+          $.digit_units,
+          $.decimal,
+          $.hexidecimal,
+          $.hexstring,
+          $.octal,
+          $.constant,
+          $.bitwise_or,
+          $.bitwise_and,
+          $.math_operator
+        ),
+        alias($.text, $.other)
       ),
+      // choice( // Here will be where all values are defined for every possible keyword
+        // $.string,
+        // $.digit,
+        // $.decimal,
+        // $.hexidecimal,
+        // $.hexstring,
+        // $.octal,
+        // $.constant,
+        // $.bitwise_or,
+        // $.bitwise_and,
+        // $.math_operator,
+        // alias($.text, $.other),
+      // ),
       optional(seq($.comma, $.value)), // Let a list of values exist
       //optional(seq($.comma, $._opt, $.semicolon)), // Check for validity, should support comma seperated options per 6.20
     ),
@@ -269,6 +303,14 @@ module.exports = grammar({
 
       'name', 'ip_src', 'ip_dst', 'ip_pair', 'expire', // xbits keyword
     ),
+
+    // text: $ => seq( // String with no quotes, terminated at ':' or ';' or '\n'
+      // repeat1(
+        // token.immediate(/[^"!:;,\(\)\n]+/)
+      // )
+    // ),
+
+    text: $ => /[^"!:;,\(\)\n]+/,
 
   }
 
