@@ -233,7 +233,7 @@ alert tcp 10.0.0.0 any -> 10.0.0.0 any (tcp.mss:1-10;)
 Digit with units
 ======
 
-alert tcp 10.0.0.0 any -> 10.0.0.0 any (tcp.mss:12KB;)
+alert tcp 10.0.0.0 any -> 10.0.0.0 any (tcp.mss:12GB;)
 
 ------
 
@@ -252,6 +252,32 @@ alert tcp 10.0.0.0 any -> 10.0.0.0 any (tcp.mss:12KB;)
     (separator)
     (value
       (digit_units))
+    (semicolon)
+    (paren_close)))
+
+======
+Octal Units
+======
+
+alert tcp 10.0.0.0 any -> 10.0.0.0 any (tcp.mss:o12;)
+
+------
+
+(source_file
+  (action)
+  (header
+    (protocol)
+    (ipv4)
+    (port)
+    (direction)
+    (ipv4)
+    (port))
+  (options
+    (paren_open)
+    (keyword)
+    (separator)
+    (value
+      (octal))
     (semicolon)
     (paren_close)))
 

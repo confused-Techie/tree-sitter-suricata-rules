@@ -763,11 +763,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "unit"
+          "value": "\\d+(KB|MB|GB)"
         }
       ]
     },
@@ -794,23 +790,6 @@
         {
           "type": "PATTERN",
           "value": "\\d+-\\d+"
-        }
-      ]
-    },
-    "unit": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "KB"
-        },
-        {
-          "type": "STRING",
-          "value": "MB"
-        },
-        {
-          "type": "STRING",
-          "value": "GB"
         }
       ]
     },
@@ -894,12 +873,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "o"
-        },
-        {
           "type": "PATTERN",
-          "value": "\\d+"
+          "value": "o\\d+"
         }
       ]
     },

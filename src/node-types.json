@@ -54,15 +54,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "operator",
-          "named": true
-        },
-        {
-          "type": "unit",
           "named": true
         }
       ]
@@ -296,11 +292,6 @@
     }
   },
   {
-    "type": "unit",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "value",
     "named": true,
     "fields": {},
@@ -485,19 +476,7 @@
     "named": false
   },
   {
-    "type": "GB",
-    "named": false
-  },
-  {
     "type": "INVITE",
-    "named": false
-  },
-  {
-    "type": "KB",
-    "named": false
-  },
-  {
-    "type": "MB",
     "named": false
   },
   {
@@ -970,10 +949,6 @@
   },
   {
     "type": "ntp",
-    "named": false
-  },
-  {
-    "type": "o",
     "named": false
   },
   {

@@ -191,19 +191,12 @@ module.exports = grammar({
 
     digit_units: $ => seq(
       optional(alias($.math_operator, $.operator)),
-      /\d+/,
-      $.unit,
+      /\d+(KB|MB|GB)/,
     ),
 
     digit_range: $ => seq(
       optional(alias($.math_operator, $.operator)),
       /\d+-\d+/
-    ),
-
-    unit: $ => choice(
-      'KB',
-      'MB',
-      'GB'
     ),
 
     string: $ => token(choice(
@@ -217,7 +210,7 @@ module.exports = grammar({
 
     hexstring: $ => seq(/[0-9]/, 'x', /[0-9a-fA-F]{1,4}/),
 
-    octal: $ => seq('o', /\d+/),
+    octal: $ => seq(/o\d+/),
 
     // Complex Values TODO:
     // 6.18 Support for Modbus functions
